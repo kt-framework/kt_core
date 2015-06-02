@@ -7,7 +7,7 @@ import jp.kt.fileio.FileUtil;
 
 /**
  * 添付ファイルクラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 class AttachmentFile implements Serializable {
@@ -21,10 +21,11 @@ class AttachmentFile implements Serializable {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param filePath
 	 *            物理ファイルのパス
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public AttachmentFile(String filePath) throws IOException {
 		FileUtil f = new FileUtil(filePath);
@@ -34,7 +35,7 @@ class AttachmentFile implements Serializable {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param fileData
 	 *            ファイルデータ
 	 * @param fileName
@@ -47,7 +48,7 @@ class AttachmentFile implements Serializable {
 
 	/**
 	 * ファイルデータを返す.
-	 * 
+	 *
 	 * @return ファイルデータ
 	 */
 	public byte[] getFileData() {
@@ -56,7 +57,7 @@ class AttachmentFile implements Serializable {
 
 	/**
 	 * ファイル名を返す.
-	 * 
+	 *
 	 * @return ファイル名
 	 */
 	public String getFileName() {

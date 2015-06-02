@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 
 /**
  * DB接続クラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public final class DbConnectManager {
@@ -18,10 +18,12 @@ public final class DbConnectManager {
 	 * 主にWebアプリ用.<br>
 	 * オートコミットはOFFになります.
 	 * </p>
-	 * 
+	 *
 	 * @param jndiName
 	 *            接続先JNDI名
 	 * @return Connectionオブジェクト
+	 * @throws Exception
+	 *             DB接続時に例外発生した場合
 	 */
 	public static Connection createConnection(String jndiName) throws Exception {
 		// JNDI名からConnectionを生成
@@ -38,7 +40,7 @@ public final class DbConnectManager {
 	 * 主にバッチ用.<br>
 	 * オートコミットはOFFになります.
 	 * </p>
-	 * 
+	 *
 	 * @param driver
 	 *            接続Driver
 	 * @param url
@@ -49,6 +51,7 @@ public final class DbConnectManager {
 	 *            ログインパスワード
 	 * @return {@link Connection}オブジェクト
 	 * @throws Exception
+	 *             DB接続時に例外発生した場合
 	 */
 	public static Connection createConnection(String driver, String url,
 			String user, String password) throws Exception {

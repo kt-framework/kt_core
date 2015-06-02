@@ -18,9 +18,8 @@ import jp.kt.exception.KtException;
  * <blockquote> [対象ファイル名].ktlck1 </blockquote>
  * というファイルが生成され、順次ファイル名の末尾がインクリメントされ待ち状態になります.<br>
  * <br>
- * 待ち状態のスレッドはひとつ前のファイルを監視しており、無くなったら（ロック解除されたら）リネームしていきます.<br>
- * </p>
- * 
+ * 待ち状態のスレッドはひとつ前のファイルを監視しており、無くなったら（ロック解除されたら）リネームしていきます.
+ *
  * @author tatsuya.kumon
  */
 public class FileLock implements Serializable {
@@ -43,7 +42,7 @@ public class FileLock implements Serializable {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param filePath
 	 *            ロック対象ファイルのパス
 	 * @param timeoutSec
@@ -52,8 +51,8 @@ public class FileLock implements Serializable {
 	public FileLock(String filePath, int timeoutSec) {
 		FileUtil f = new FileUtil(filePath);
 		if (!f.isFile()) {
-			throw new KtException("A014",
-					"指定されたパスは存在しない、もしくはファイルではありません [" + filePath + "]");
+			throw new KtException("A014", "指定されたパスは存在しない、もしくはファイルではありません ["
+					+ filePath + "]");
 		}
 		// ファイル名と親ディレクトリパスをインスタンス変数にセット
 		this.fileName = f.getName();
@@ -69,8 +68,10 @@ public class FileLock implements Serializable {
 	 * ファイル読み込み時にロックされている場合、読込エラーになってしまう恐れがあるので、このメソッドでロック解除を待ちます.<br>
 	 * ただし、タイムアウト時間を超えた場合は {@link KtException} をthrowします.
 	 * </p>
-	 * 
+	 *
 	 * @throws Exception
+	 *             ロックファイルが一定時間以上経過しても消えない場合<br>
+	 *             sleep時に例外発生した場合
 	 */
 	public void waitRelease() throws Exception {
 		// ロックファイルのFile作成
@@ -79,9 +80,8 @@ public class FileLock implements Serializable {
 		while (f.exists()) {
 			// タイムアウト設定以上経過してもロックファイルが消えない場合はException
 			if (System.currentTimeMillis() - start > timeoutMillis) {
-				throw new KtException("A051", "ロックファイルが"
-						+ timeoutMillis + "ミリ秒以上経過しても消えません ["
-						+ f.getAbsolutePath() + "]");
+				throw new KtException("A051", "ロックファイルが" + timeoutMillis
+						+ "ミリ秒以上経過しても消えません [" + f.getAbsolutePath() + "]");
 			}
 			// ロックファイルが存在する間は、0.1秒sleepしつつループ
 			Thread.sleep(100);
@@ -93,8 +93,9 @@ public class FileLock implements Serializable {
 	 * <p>
 	 * 既にロックされている場合は、解除されるか最大待ち時間経過まで待つ.<br>
 	 * </p>
-	 * 
+	 *
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void lock() throws IOException {
 		/*
@@ -102,8 +103,7 @@ public class FileLock implements Serializable {
 		 */
 		FileUtil d = new FileUtil(dir);
 		if (!d.isDirectory()) {
-			throw new KtException("A015", "ディレクトリではありません [" + dir
-					+ "]");
+			throw new KtException("A015", "ディレクトリではありません [" + dir + "]");
 		}
 		/*
 		 * ロックファイルの生成
@@ -124,8 +124,8 @@ public class FileLock implements Serializable {
 		}
 		if (lockFileNum < 0) {
 			// ロックできなかったらException
-			throw new KtException("A030", "ファイルロックができませんでした [" + dir
-					+ fileName + "]");
+			throw new KtException("A030", "ファイルロックができませんでした [" + dir + fileName
+					+ "]");
 		}
 		/*
 		 * ロックファイル番号が0になるまでループし続ける

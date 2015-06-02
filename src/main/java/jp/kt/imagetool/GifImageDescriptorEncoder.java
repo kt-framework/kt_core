@@ -16,7 +16,6 @@ import java.util.Enumeration;
  * @author tatsuya.kumon
  */
 class GifImageDescriptorEncoder extends GifImageEncoder {
-
 	private boolean interlace = false;
 
 	private int delayTime = 0;
@@ -540,14 +539,19 @@ class GifImageDescriptorEncoder extends GifImageEncoder {
 	}
 
 	/**
-	 * @return
+	 * DelayTimeを取得する.
+	 *
+	 * @return delayTime
 	 */
 	public int getDelayTime() {
 		return delayTime;
 	}
 
 	/**
-	 * @param i
+	 * DelayTimeをセットする.
+	 *
+	 * @param delayTime
+	 *            DelayTime
 	 */
 	public void setDelayTime(int delayTime) {
 		this.delayTime = delayTime;

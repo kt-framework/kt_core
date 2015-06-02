@@ -14,7 +14,7 @@ import jp.kt.fileio.FileUtil;
 
 /**
  * 画像情報を取得するクラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public class ImageInfo implements Serializable {
@@ -26,17 +26,18 @@ public class ImageInfo implements Serializable {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param imagePath
 	 *            画像パス
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public ImageInfo(String imagePath) throws IOException {
 		FileUtil f = new FileUtil(imagePath);
 		if (!f.isFile()) {
 			// 画像ファイルが存在しない
-			throw new KtException("A014",
-					"指定されたパスは存在しない、もしくはファイルではありません:" + imagePath);
+			throw new KtException("A014", "指定されたパスは存在しない、もしくはファイルではありません:"
+					+ imagePath);
 		}
 		// 画像のロード
 		Iterator<ImageReader> readerIt = ImageIO
@@ -60,14 +61,13 @@ public class ImageInfo implements Serializable {
 			}
 		} else {
 			// サポートされていない画像形式である
-			throw new KtException("A036", "サポートされていない画像形式です:"
-					+ imagePath);
+			throw new KtException("A036", "サポートされていない画像形式です:" + imagePath);
 		}
 	}
 
 	/**
 	 * ファイル名の拡張子を抜き出す.
-	 * 
+	 *
 	 * @param fileName
 	 *            ファイル名
 	 * @return 拡張子
@@ -83,7 +83,7 @@ public class ImageInfo implements Serializable {
 
 	/**
 	 * 画像の幅（px）を取得.
-	 * 
+	 *
 	 * @return 画像の幅
 	 */
 	public int getWidth() {
@@ -92,7 +92,7 @@ public class ImageInfo implements Serializable {
 
 	/**
 	 * 画像の高さ（px）を取得.
-	 * 
+	 *
 	 * @return 画像の高さ
 	 */
 	public int getHeight() {

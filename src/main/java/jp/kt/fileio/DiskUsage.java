@@ -13,7 +13,7 @@ import jp.kt.exception.KtException;
 
 /**
  * 指定したディレクトリ配下全体のディレクトリ数、ファイル数、合計容量を取得するためのクラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public final class DiskUsage extends SimpleFileVisitor<Path> {
@@ -22,7 +22,7 @@ public final class DiskUsage extends SimpleFileVisitor<Path> {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param dir
 	 *            対象のディレクトリ
 	 */
@@ -36,11 +36,12 @@ public final class DiskUsage extends SimpleFileVisitor<Path> {
 
 	/**
 	 * ディレクトリを再帰的に巡回し、集計する.
-	 * 
+	 *
 	 * @param dir
 	 *            対象のディレクトリ
 	 * @return 集計されたディスク情報
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public static DiskInfo execute(String dir) throws IOException {
 		// 検索実行
@@ -74,7 +75,7 @@ public final class DiskUsage extends SimpleFileVisitor<Path> {
 
 	/**
 	 * 集計結果であるディスク情報.
-	 * 
+	 *
 	 * @author tatsuya.kumon
 	 */
 	public final class DiskInfo implements Serializable {
@@ -110,7 +111,7 @@ public final class DiskUsage extends SimpleFileVisitor<Path> {
 
 		/**
 		 * ディレクトリ数を返す.
-		 * 
+		 *
 		 * @return ディレクトリ数
 		 */
 		public int getDirectoryCount() {
@@ -119,7 +120,7 @@ public final class DiskUsage extends SimpleFileVisitor<Path> {
 
 		/**
 		 * ファイル数を返す.
-		 * 
+		 *
 		 * @return ファイル数
 		 */
 		public int getFileCount() {
@@ -128,7 +129,7 @@ public final class DiskUsage extends SimpleFileVisitor<Path> {
 
 		/**
 		 * 合計容量を返す.
-		 * 
+		 *
 		 * @return 合計容量（バイト）
 		 */
 		public long getSize() {

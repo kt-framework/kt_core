@@ -18,6 +18,7 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
@@ -224,9 +225,10 @@ public class MailSender {
 	 *
 	 * @param address
 	 *            追加するメールアドレス
-	 * @throws Exception
+	 * @throws AddressException
+	 *             メールアドレスの解析に失敗した場合
 	 */
-	public void addToAddress(String address) throws Exception {
+	public void addToAddress(String address) throws AddressException {
 		if (address != null && !address.equals("")) {
 			toAddressList.add(new InternetAddress(address));
 		}
@@ -237,9 +239,10 @@ public class MailSender {
 	 *
 	 * @param address
 	 *            追加するメールアドレス
-	 * @throws Exception
+	 * @throws AddressException
+	 *             メールアドレスの解析に失敗した場合
 	 */
-	public void addCcAddress(String address) throws Exception {
+	public void addCcAddress(String address) throws AddressException {
 		if (address != null && !address.equals("")) {
 			ccAddressList.add(new InternetAddress(address));
 		}
@@ -250,9 +253,10 @@ public class MailSender {
 	 *
 	 * @param address
 	 *            追加するメールアドレス
-	 * @throws Exception
+	 * @throws AddressException
+	 *             メールアドレスの解析に失敗した場合
 	 */
-	public void addBccAddress(String address) throws Exception {
+	public void addBccAddress(String address) throws AddressException {
 		if (address != null && !address.equals("")) {
 			bccAddressList.add(new InternetAddress(address));
 		}
@@ -263,9 +267,10 @@ public class MailSender {
 	 *
 	 * @param address
 	 *            追加するメールアドレス
-	 * @throws Exception
+	 * @throws AddressException
+	 *             メールアドレスの解析に失敗した場合
 	 */
-	public void addReplyToAddress(String address) throws Exception {
+	public void addReplyToAddress(String address) throws AddressException {
 		if (address != null && !address.equals("")) {
 			replyToList.add(new InternetAddress(address));
 		}
@@ -280,6 +285,7 @@ public class MailSender {
 	 * @param filePath
 	 *            ファイルのパス
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void addAttachmentFile(String filePath) throws IOException {
 		attachmentFileList.add(new AttachmentFile(filePath));
@@ -349,6 +355,7 @@ public class MailSender {
 	 * メール送信実行.
 	 *
 	 * @throws Exception
+	 *             メッセージ作成時もしくは送信時に例外発生した場合
 	 */
 	public void send() throws Exception {
 		MimeMessage message = createMessage();
@@ -382,6 +389,7 @@ public class MailSender {
 	 *
 	 * @return メール内容
 	 * @throws Exception
+	 *             メッセージ作成時に例外発生した場合
 	 */
 	public String getMailString() throws Exception {
 		MimeMessage message = createMessage();
@@ -396,6 +404,7 @@ public class MailSender {
 	 *
 	 * @return MimeMessageオブジェクト
 	 * @throws Exception
+	 *             メッセージ作成時に例外発生した場合
 	 */
 	private MimeMessage createMessage() throws Exception {
 		// Propertiesの作成

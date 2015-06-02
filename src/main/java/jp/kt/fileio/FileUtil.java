@@ -143,6 +143,7 @@ public class FileUtil {
 	 * @param isUpdateLastModified
 	 *            ファイルの最終更新日時を現在日時で更新するかどうかのフラグ
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void copy(final FileUtil target, final boolean isUpdateLastModified)
 			throws IOException {
@@ -257,6 +258,7 @@ public class FileUtil {
 	 * </p>
 	 *
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void delete() throws IOException {
 		if (isFile(this.path, this.isNfsMode)) {
@@ -301,6 +303,7 @@ public class FileUtil {
 	 * @param target
 	 *            移動先
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void move(FileUtil target) throws IOException {
 		// 変更元のパス存在チェック
@@ -318,6 +321,7 @@ public class FileUtil {
 	 *            文字コード
 	 * @return ファイルの全内容を全てStringで返す.
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public String readAllString(String charset) throws IOException {
 		// ファイルかどうかチェック
@@ -336,6 +340,7 @@ public class FileUtil {
 	 *
 	 * @return ファイルの全内容を全てStringで返す.
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public String readAllString() throws IOException {
 		return readAllString(KtProperties.getInstance().getDefaultCharset());
@@ -346,6 +351,7 @@ public class FileUtil {
 	 *
 	 * @return ファイルの全内容を全てbyte配列で返す.
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public byte[] readAllBytes() throws IOException {
 		// ファイルかどうかチェック
@@ -388,18 +394,20 @@ public class FileUtil {
 	 * </p>
 	 *
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void makeDirectory() throws IOException {
 		Files.createDirectories(this.path);
 	}
 
 	/**
-	 * 指定した文字列をファイル出力.<br/>
+	 * 指定した文字列をファイル出力.<br>
 	 * 文字コードはデフォルトの設定となります.
 	 *
 	 * @param text
 	 *            ファイルに出力するテキスト
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void write(String text) throws IOException {
 		String charset = KtProperties.getInstance().getDefaultCharset();
@@ -407,7 +415,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * 指定した文字列をファイル出力.<br/>
+	 * 指定した文字列をファイル出力.<br>
 	 * 文字コード指定版.
 	 *
 	 * @param text
@@ -415,6 +423,7 @@ public class FileUtil {
 	 * @param charset
 	 *            文字コード
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void write(String text, String charset) throws IOException {
 		// 文字コード
@@ -432,6 +441,7 @@ public class FileUtil {
 	 * @param outputData
 	 *            出力データ
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void write(byte[] outputData) throws IOException {
 		// 親パスがディレクトリであることをチェック
@@ -449,6 +459,7 @@ public class FileUtil {
 	 * </p>
 	 *
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void touch() throws IOException {
 		// 親パスがディレクトリであることをチェック
@@ -471,6 +482,7 @@ public class FileUtil {
 	 *
 	 * @return ファイルリスト
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public List<FileUtil> getFileList() throws IOException {
 		return getList(true);
@@ -481,6 +493,7 @@ public class FileUtil {
 	 *
 	 * @return ファイルリスト
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public List<FileUtil> getDirectoryList() throws IOException {
 		return getList(false);
@@ -493,6 +506,7 @@ public class FileUtil {
 	 *            ファイルリストの場合はtrue、ディレクトリリストの場合はfalseを指定する.
 	 * @return ファイルもしくはディレクトリのリスト
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	private List<FileUtil> getList(final boolean isFile) throws IOException {
 		if (!isDirectory(this.path, this.isNfsMode)) {
@@ -527,6 +541,7 @@ public class FileUtil {
 	 *
 	 * @return 最終更新日時
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public Date getLastModifiedDate() throws IOException {
 		if (!exists(this.path, this.isNfsMode)) {
@@ -543,6 +558,7 @@ public class FileUtil {
 	 *
 	 * @return ファイルサイズ（バイト）
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public long getFileSize() throws IOException {
 		// ファイルかどうかチェック
@@ -630,6 +646,9 @@ public class FileUtil {
 	 * @param permission
 	 *            パーミッション（3ケタの半角数字で指定すること）
 	 * @throws Exception
+	 *             パラメータ不正の場合<br>
+	 *             コマンド実行時に例外発生した場合
+	 *
 	 */
 	public void chmod(String permission) throws Exception {
 		// パスの存在確認
@@ -683,6 +702,7 @@ public class FileUtil {
 	 *            比較対象のファイル
 	 * @return 同一内容のファイルであればtrue
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public boolean isSameContent(FileUtil f) throws IOException {
 		boolean isSame = false;

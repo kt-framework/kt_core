@@ -58,6 +58,7 @@ public class HtmlBody implements Serializable {
 	 * @param filePath
 	 *            ファイルのパス
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public void addInlineImage(String key, String filePath) throws IOException {
 		inlineImageMap.put(key, new InlineImage(filePath));

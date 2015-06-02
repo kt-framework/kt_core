@@ -10,37 +10,39 @@ import jp.kt.tool.StringUtil;
 
 /**
  * 圧縮・解凍ツールの基底クラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 abstract class BaseArchiver {
 	/**
 	 * ディレクトリ以下全てをファイルに圧縮する.
-	 * 
+	 *
 	 * @param baseDirPath
 	 *            圧縮対象のディレクトリパス
 	 * @param compFilePath
 	 *            圧縮ファイルパス
 	 * @throws Exception
+	 *             圧縮時に例外発生した場合
 	 */
 	public abstract void compress(String baseDirPath, String compFilePath)
 			throws Exception;
 
 	/**
 	 * 圧縮ファイルを解凍する.
-	 * 
+	 *
 	 * @param compFilePath
 	 *            圧縮ファイルのパス
 	 * @param outputDirPath
 	 *            解凍先ディレクトリパス
 	 * @throws Exception
+	 *             解凍時に例外発生した場合
 	 */
 	public abstract void decompress(String compFilePath, String outputDirPath)
 			throws Exception;
 
 	/**
 	 * Entry名を生成する.
-	 * 
+	 *
 	 * @param inputFile
 	 *            入力ファイル
 	 * @param baseDir
@@ -65,7 +67,7 @@ abstract class BaseArchiver {
 	 * <p>
 	 * エラーの場合は {@link KtException} がthrowされる.
 	 * </p>
-	 * 
+	 *
 	 * @param baseDirPath
 	 *            圧縮対象のディレクトリパス
 	 * @param compFilePath
@@ -83,8 +85,8 @@ abstract class BaseArchiver {
 		Path f = Paths.get(compFilePath);
 		if (Files.isDirectory(f)) {
 			// 圧縮ファイルパスがディレクトリとして存在している
-			throw new KtException("A014",
-					"圧縮ファイルのパスがディレクトリとして存在しています[" + f.toAbsolutePath() + "]");
+			throw new KtException("A014", "圧縮ファイルのパスがディレクトリとして存在しています["
+					+ f.toAbsolutePath() + "]");
 		}
 	}
 
@@ -93,7 +95,7 @@ abstract class BaseArchiver {
 	 * <p>
 	 * エラーの場合は {@link KtException} がthrowされる.
 	 * </p>
-	 * 
+	 *
 	 * @param compFilePath
 	 *            圧縮ファイルのパス
 	 * @param outputDirPath
@@ -104,15 +106,15 @@ abstract class BaseArchiver {
 		FileUtil f = new FileUtil(compFilePath);
 		if (!f.isFile()) {
 			// 圧縮ファイルが存在しない
-			throw new KtException("A014",
-					"圧縮ファイルのパスは存在しない、もしくはファイルではありません[" + f.getPath() + "]");
+			throw new KtException("A014", "圧縮ファイルのパスは存在しない、もしくはファイルではありません["
+					+ f.getPath() + "]");
 		}
 		// 解凍先ディレクトリ存在チェック
 		FileUtil d = new FileUtil(outputDirPath);
 		if (!d.isDirectory()) {
 			// 解凍先ディレクトリが存在しない
-			throw new KtException("A015", "解凍先ディレクトリが存在しません["
-					+ d.getPath() + "]");
+			throw new KtException("A015", "解凍先ディレクトリが存在しません[" + d.getPath()
+					+ "]");
 		}
 	}
 }

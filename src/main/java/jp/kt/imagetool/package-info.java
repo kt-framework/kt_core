@@ -9,7 +9,6 @@
  * <li><a href="https://gif-plugin.dev.java.net/" target="_blank">gif-plugin</a>
  * <li><a href="http://www.vector.co.jp/soft/other/java/se374667.html" target="_blank">Gif Animation Encoder for java API</a>
  * </ul>
- * </p>
  * @author tatsuya.kumon
  */
 package jp.kt.imagetool;

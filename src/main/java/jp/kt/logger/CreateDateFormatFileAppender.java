@@ -13,7 +13,8 @@ import org.apache.log4j.Layout;
  *
  * @author tatsuya.kumon
  */
-public final class CreateDateFormatFileAppender extends DateFormatFileAppenderBase {
+public final class CreateDateFormatFileAppender extends
+		DateFormatFileAppenderBase {
 	/**
 	 * コンストラクタ.
 	 */
@@ -28,6 +29,7 @@ public final class CreateDateFormatFileAppender extends DateFormatFileAppenderBa
 	 * @param filePattern
 	 *            ファイル名のパターン
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public CreateDateFormatFileAppender(Layout layout, String filePattern)
 			throws IOException {
@@ -44,6 +46,7 @@ public final class CreateDateFormatFileAppender extends DateFormatFileAppenderBa
 	 * @param append
 	 *            追加書きフラグ
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public CreateDateFormatFileAppender(Layout layout, String filePattern,
 			boolean append) throws IOException {
@@ -64,10 +67,11 @@ public final class CreateDateFormatFileAppender extends DateFormatFileAppenderBa
 	 * @param bufferSize
 	 *            バッファサイズ
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public CreateDateFormatFileAppender(Layout layout, String filePattern,
 			boolean append, boolean bufferedIO, int bufferSize)
 			throws IOException {
-		super(layout, filePattern, append,bufferedIO, bufferSize);
+		super(layout, filePattern, append, bufferedIO, bufferSize);
 	}
 }

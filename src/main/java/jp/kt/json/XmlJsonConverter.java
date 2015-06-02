@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 /**
  * XMLからJSONへの変換処理.
- * 
+ *
  * @author tatsuya.kumon
  */
 public class XmlJsonConverter {
@@ -35,13 +35,14 @@ public class XmlJsonConverter {
 	 * <li>タグ属性は全て消失します.</li>
 	 * <li>全体を1行のテキストとして出力されます.</li>
 	 * </ul>
-	 * </p>
-	 * 
+	 *
 	 * @param root
 	 *            変換元のXMLデータ
 	 * @param isHtmlEscape
 	 *            valueをHTMLエスケープする場合はtrueを指定する
+	 * @return 変換されたテキスト
 	 * @throws Exception
+	 *             変換時に例外発生した場合
 	 */
 	public static String convert(XmlRoot root, boolean isHtmlEscape)
 			throws Exception {
@@ -64,15 +65,16 @@ public class XmlJsonConverter {
 	 * <li>タグ属性は全て消失します.</li>
 	 * <li>全体を1行のテキストとして出力されます.</li>
 	 * </ul>
-	 * </p>
-	 * 
+	 *
 	 * @param root
 	 *            変換元のXMLデータ
 	 * @param isHtmlEscape
 	 *            valueをHTMLエスケープする場合はtrueを指定する
 	 * @param jsVarName
 	 *            JavaScript用の変数名
+	 * @return 変換されたテキスト
 	 * @throws Exception
+	 *             変換時に例外発生した場合
 	 */
 	public static String convert(XmlRoot root, boolean isHtmlEscape,
 			String jsVarName) throws Exception {
@@ -98,8 +100,7 @@ public class XmlJsonConverter {
 	 * <li>タグ属性は全て消失します.</li>
 	 * <li>全体を1行のテキストとして出力されます.</li>
 	 * </ul>
-	 * </p>
-	 * 
+	 *
 	 * @param root
 	 *            変換元のXMLデータ
 	 * @param isHtmlEscape
@@ -108,7 +109,9 @@ public class XmlJsonConverter {
 	 *            JavaScript用の変数名
 	 * @param isDefinition
 	 *            変数定義文にするかどうかのフラグ
+	 * @return 変換されたテキスト
 	 * @throws Exception
+	 *             変換時に例外発生した場合
 	 */
 	public static String convert(XmlRoot root, boolean isHtmlEscape,
 			String jsVarName, boolean isDefinition) throws Exception {
@@ -125,8 +128,7 @@ public class XmlJsonConverter {
 	 * <br>
 	 * という形式となります.<br>
 	 * 先頭行のJavaScript変数名は引数で指定します.
-	 * </p>
-	 * 
+	 *
 	 * @param root
 	 *            変換元のXMLデータ
 	 * @param isHtmlEscape
@@ -147,7 +149,7 @@ public class XmlJsonConverter {
 
 	/**
 	 * XMLデータをJSONに変換します.
-	 * 
+	 *
 	 * @return JavaScript用JSONテキスト
 	 * @throws Exception
 	 */
@@ -173,7 +175,7 @@ public class XmlJsonConverter {
 
 	/**
 	 * JSONObjectにXMLデータをセットする.
-	 * 
+	 *
 	 * @param obj
 	 *            JSONのオブジェクト
 	 * @param ele

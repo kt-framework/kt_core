@@ -12,7 +12,7 @@ import org.apache.log4j.spi.LoggingEvent;
  * FilePatternで指定したパターンでファイル名を生成します.<br>
  * ファイルのローテーションは行いません.
  * </p>
- * 
+ *
  * @author tatsuya.kumon
  */
 public final class OutputDateFormatFileAppender extends
@@ -25,12 +25,13 @@ public final class OutputDateFormatFileAppender extends
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param layout
 	 *            レイアウト
 	 * @param filePattern
 	 *            ファイル名のパターン
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public OutputDateFormatFileAppender(Layout layout, String filePattern)
 			throws IOException {
@@ -39,7 +40,7 @@ public final class OutputDateFormatFileAppender extends
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param layout
 	 *            レイアウト
 	 * @param filePattern
@@ -47,6 +48,7 @@ public final class OutputDateFormatFileAppender extends
 	 * @param append
 	 *            追加書きフラグ
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public OutputDateFormatFileAppender(Layout layout, String filePattern,
 			boolean append) throws IOException {
@@ -55,7 +57,7 @@ public final class OutputDateFormatFileAppender extends
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param layout
 	 *            レイアウト
 	 * @param filePattern
@@ -67,6 +69,7 @@ public final class OutputDateFormatFileAppender extends
 	 * @param bufferSize
 	 *            バッファサイズ
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public OutputDateFormatFileAppender(Layout layout, String filePattern,
 			boolean append, boolean bufferedIO, int bufferSize)

@@ -23,7 +23,7 @@ import jp.kt.db.manager.CountManager.Count;
  * FROM ADMIN_USER<br>
  * FROM ADMIN_USER WHERE STATUS = ?
  * </p>
- * 
+ *
  * @author tatsuya.kumon
  */
 public final class CountManager extends BaseManager<Count> {
@@ -32,8 +32,9 @@ public final class CountManager extends BaseManager<Count> {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param con
+	 *            DB接続
 	 */
 	public CountManager(Connection con) {
 		super(con);
@@ -41,13 +42,14 @@ public final class CountManager extends BaseManager<Count> {
 
 	/**
 	 * count値を取得する.
-	 * 
+	 *
 	 * @param selectBlock
 	 *            SELECT句
 	 * @param fromWhereBlock
 	 *            FROM句とWHERE句
 	 * @return カウント
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	public int getCount(String selectBlock, String fromWhereBlock)
 			throws Exception {
@@ -56,7 +58,7 @@ public final class CountManager extends BaseManager<Count> {
 
 	/**
 	 * count値を取得する共通処理.
-	 * 
+	 *
 	 * @param selectBlock
 	 *            SELECT句
 	 * @param fromWhereBlock
@@ -65,6 +67,7 @@ public final class CountManager extends BaseManager<Count> {
 	 *            プレースホルダーにセットする値
 	 * @return カウント
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	public int getCount(String selectBlock, String fromWhereBlock,
 			Object[] values) throws Exception {
@@ -95,7 +98,7 @@ public final class CountManager extends BaseManager<Count> {
 
 	/**
 	 * CountManager用Entity.
-	 * 
+	 *
 	 * @author tatsuya.kumon
 	 */
 	final class Count implements BaseEntity {

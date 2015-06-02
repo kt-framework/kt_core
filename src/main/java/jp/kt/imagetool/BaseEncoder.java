@@ -7,38 +7,36 @@ import jp.kt.fileio.FileUtil;
 
 /**
  * 画像変換ツールの基底クラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 abstract class BaseEncoder {
 	/**
 	 * 入力画像パスチェック.
-	 * 
+	 *
 	 * @param inputImagePath
 	 *            入力元画像パス
-	 * @throws KtException
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
-	void inputImagePathCheck(String inputImagePath)
-			throws KtException, IOException {
+	void inputImagePathCheck(String inputImagePath) throws IOException {
 		// 入力のファイルが存在するかチェック
 		FileUtil fileUtil = new FileUtil(inputImagePath);
 		if (!fileUtil.isFile()) {
-			throw new KtException("A014",
-					"元画像のパスは存在しない、もしくはファイルではありません:" + fileUtil.getPath());
+			throw new KtException("A014", "元画像のパスは存在しない、もしくはファイルではありません:"
+					+ fileUtil.getPath());
 		}
 	}
 
 	/**
 	 * 出力画像パスチェック.
-	 * 
+	 *
 	 * @param outputImagePath
 	 *            出力画像パス
-	 * @throws KtException
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
-	void outputImagePathCheck(String outputImagePath)
-			throws KtException, IOException {
+	void outputImagePathCheck(String outputImagePath) throws IOException {
 		// 出力先ディレクトリが存在するかチェック
 		FileUtil fileUtil = new FileUtil(outputImagePath);
 		fileUtil.setParentPath();

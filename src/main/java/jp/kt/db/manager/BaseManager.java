@@ -22,6 +22,8 @@ import jp.kt.tool.Validator;
  * Managerの基底クラス.
  *
  * @author tatsuya.kumon
+ * @param <T>
+ *            {@link BaseEntity}の子クラス
  */
 public abstract class BaseManager<T extends BaseEntity> {
 	/**
@@ -115,6 +117,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            SQL文
 	 * @return SELECTした結果のList
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected List<T> executeQuery(CharSequence sql) throws Exception {
 		return executeQuery(sql, new Object[0]);
@@ -129,6 +132,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            タイムアウト値（秒）
 	 * @return SELECTした結果のList
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected List<T> executeQuery(CharSequence sql, int timeoutSec)
 			throws Exception {
@@ -144,6 +148,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            プレースホルダーの値
 	 * @return SELECTした結果のList
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected List<T> executeQuery(CharSequence sql, Object[] values)
 			throws Exception {
@@ -161,6 +166,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            タイムアウト値（秒）
 	 * @return SELECTした結果のList
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected List<T> executeQuery(CharSequence sql, Object[] values,
 			int timeoutSec) throws Exception {
@@ -202,6 +208,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            SQL文
 	 * @return 更新したレコード数
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected int executeUpdate(CharSequence sql) throws Exception {
 		return executeUpdate(sql, new Object[0]);
@@ -216,6 +223,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            タイムアウト値（秒）
 	 * @return 更新したレコード数
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected int executeUpdate(CharSequence sql, int timeoutSec)
 			throws Exception {
@@ -231,6 +239,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            プレースホルダーの値
 	 * @return 更新したレコード数
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected int executeUpdate(CharSequence sql, Object[] values)
 			throws Exception {
@@ -248,6 +257,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            タイムアウト値（秒）
 	 * @return 更新したレコード数
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected int executeUpdate(CharSequence sql, Object[] values,
 			int timeoutSec) throws Exception {
@@ -283,6 +293,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            プレースホルダーの値のリスト
 	 * @return 更新したレコード数
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected int executeUpdate(CharSequence sql, List<Object[]> valuesList)
 			throws Exception {
@@ -303,6 +314,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            タイムアウト値（秒）
 	 * @return 更新したレコード数
 	 * @throws Exception
+	 *             SQL実行時に例外発生した場合
 	 */
 	protected int executeUpdate(CharSequence sql, List<Object[]> valuesList,
 			int timeoutSec) throws Exception {
@@ -341,6 +353,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 * @param values
 	 *            セットする値
 	 * @throws SQLException
+	 *             SQL実行時に例外発生した場合
 	 */
 	private void setPlaceHolder(PreparedStatement pstmt, Object[] values)
 			throws SQLException {
@@ -473,8 +486,9 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *
 	 * @param rs
 	 *            {@link ResultSet}オブジェクト
-	 * @throws SQLException
 	 * @return BaseEntityオブジェクト
+	 * @throws SQLException
+	 *             値取得時に例外発生した場合
 	 */
 	protected abstract T createEntity(ResultSet rs) throws SQLException;
 
@@ -509,6 +523,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            カラム名
 	 * @return ResultSetから取得した値
 	 * @throws SQLException
+	 *             値取得時に例外発生した場合
 	 */
 	protected Integer getInt(ResultSet rs, String columnName)
 			throws SQLException {
@@ -534,6 +549,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            カラム名
 	 * @return ResultSetから取得した値
 	 * @throws SQLException
+	 *             値取得時に例外発生した場合
 	 */
 	protected Double getDouble(ResultSet rs, String columnName)
 			throws SQLException {
@@ -559,6 +575,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            カラム名
 	 * @return ResultSetから取得した値
 	 * @throws SQLException
+	 *             値取得時に例外発生した場合
 	 */
 	protected BigDecimal getBigDecimal(ResultSet rs, String columnName)
 			throws SQLException {
@@ -580,6 +597,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            カラム名
 	 * @return ResultSetから取得した値
 	 * @throws SQLException
+	 *             値取得時に例外発生した場合
 	 */
 	protected String getString(ResultSet rs, String columnName)
 			throws SQLException {
@@ -601,6 +619,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            カラム名
 	 * @return ResultSetから取得した値
 	 * @throws SQLException
+	 *             値取得時に例外発生した場合
 	 */
 	protected Character getChar(ResultSet rs, String columnName)
 			throws SQLException {
@@ -625,6 +644,7 @@ public abstract class BaseManager<T extends BaseEntity> {
 	 *            カラム名
 	 * @return ResultSetから取得した値
 	 * @throws SQLException
+	 *             値取得時に例外発生した場合
 	 */
 	protected Timestamp getTimestamp(ResultSet rs, String columnName)
 			throws SQLException {

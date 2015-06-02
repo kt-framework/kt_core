@@ -21,9 +21,8 @@ public final class JsonUtil {
 	 * @param jsonText
 	 *            JSONテキスト
 	 * @return {@link org.json.JSONArray} もしくは {@link org.json.JSONObject}オブジェクト
-	 * @throws JSONException
 	 */
-	public static Object parse(String jsonText) throws JSONException {
+	public static Object parse(String jsonText) {
 		/*
 		 * まずJSONArrayオブジェクトを作ってみる
 		 */

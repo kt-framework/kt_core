@@ -24,6 +24,7 @@ public class InlineImage extends AttachmentFile {
 	 * @param filePath
 	 *            物理ファイルのパス
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public InlineImage(String filePath) throws IOException {
 		super(filePath);

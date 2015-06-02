@@ -21,7 +21,7 @@ import jp.kt.exception.KtException;
 
 /**
  * 画像ファイルの加工を行うクラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public class ImageEncoder extends BaseEncoder {
@@ -35,18 +35,18 @@ public class ImageEncoder extends BaseEncoder {
 	private ImageFormat format;
 
 	/**
-	 * 
+	 *
 	 * @param inputImagePath
 	 *            元画像のパス
 	 * @param outputImagePath
 	 *            出力画像のパス
 	 * @param format
 	 *            出力画像のファイル形式
-	 * @throws KtException
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public ImageEncoder(String inputImagePath, String outputImagePath,
-			ImageFormat format) throws KtException, IOException {
+			ImageFormat format) throws IOException {
 		// 入力のファイルが存在するかチェック
 		super.inputImagePathCheck(inputImagePath);
 		// 出力先ディレクトリが存在するかチェック
@@ -59,11 +59,11 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * 画像フォーマット変換.
-	 * 
-	 * @throws KtException
+	 *
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
-	public void convertFileFormat() throws KtException, IOException {
+	public void convertFileFormat() throws IOException {
 		BufferedImage image = getBufferedImage();
 		// ファイル出力
 		outputFile(image);
@@ -71,7 +71,7 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * ファイル出力.
-	 * 
+	 *
 	 * @param image
 	 *            BufferedImage
 	 * @throws KtException
@@ -86,21 +86,19 @@ public class ImageEncoder extends BaseEncoder {
 			// GIF以外の場合
 			if (!ImageIO.write(image, format.getFormatText(), new File(
 					outputImagePath))) {
-				throw new KtException("A025", "画像出力に失敗しました:"
-						+ outputImagePath);
+				throw new KtException("A025", "画像出力に失敗しました:" + outputImagePath);
 			}
 		}
 	}
 
 	/**
 	 * GIFファイル出力.
-	 * 
+	 *
 	 * @param image
 	 * @throws KtException
 	 * @throws IOException
 	 */
-	private void outputGif(BufferedImage image) throws KtException,
-			IOException {
+	private void outputGif(BufferedImage image) throws KtException, IOException {
 		GifAnimationEncoder g = new GifAnimationEncoder();
 		g.addImage(image, 0);
 		g.encode(outputImagePath);
@@ -108,14 +106,13 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * 画像ファイルのリサイズ（倍率指定）.
-	 * 
+	 *
 	 * @param scale
 	 *            倍率（1.0だと等倍、0.5だと半分に縮小）
-	 * @throws KtException
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
-	public void resizeByScale(double scale) throws KtException,
-			IOException {
+	public void resizeByScale(double scale) throws IOException {
 		BufferedImage image = getBufferedImage();
 		// 倍率から横幅と高さを算出
 		int width = (int) (image.getWidth() * scale);
@@ -126,14 +123,13 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * 画像ファイルのリサイズ（横幅指定）.
-	 * 
+	 *
 	 * @param width
 	 *            横幅（ピクセル）
-	 * @throws KtException
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
-	public void resizeByWidth(int width) throws KtException,
-			IOException {
+	public void resizeByWidth(int width) throws IOException {
 		BufferedImage image = getBufferedImage();
 		// オリジナルのサイズから高さを算出
 		double scale = (double) width / image.getWidth();
@@ -144,14 +140,13 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * 画像ファイルのリサイズ（高さ指定）.
-	 * 
+	 *
 	 * @param height
 	 *            高さ（ピクセル）
-	 * @throws KtException
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
-	public void resizeByHeight(int height) throws KtException,
-			IOException {
+	public void resizeByHeight(int height) throws IOException {
 		BufferedImage image = getBufferedImage();
 		// オリジナルのサイズから横幅を算出
 		double scale = (double) height / image.getHeight();
@@ -162,7 +157,7 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * 画像ファイルのリサイズ.
-	 * 
+	 *
 	 * @param image
 	 *            BufferedImage
 	 * @param width
@@ -196,7 +191,7 @@ public class ImageEncoder extends BaseEncoder {
 	 * <p>
 	 * ImageIO.read() でできるが、OutOfMemoryが出てしまう場合があるため、自前で作成.
 	 * </p>
-	 * 
+	 *
 	 * @return BufferedImageオブジェクト
 	 * @throws IOException
 	 */
@@ -229,7 +224,7 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * ファイル名の拡張子を抜き出す.
-	 * 
+	 *
 	 * @param fileName
 	 *            ファイル名
 	 * @return 拡張子
@@ -245,7 +240,7 @@ public class ImageEncoder extends BaseEncoder {
 
 	/**
 	 * 画像ファイル形式を定義するクラス.
-	 * 
+	 *
 	 * @author tatsuya.kumon
 	 */
 	public final static class ImageFormat implements Serializable {
@@ -265,7 +260,7 @@ public class ImageEncoder extends BaseEncoder {
 
 		/**
 		 * privateコンストラクタ.
-		 * 
+		 *
 		 * @param formatText
 		 *            画像ファイル形式名
 		 */
@@ -275,7 +270,7 @@ public class ImageEncoder extends BaseEncoder {
 
 		/**
 		 * 画像ファイル形式名を返す.
-		 * 
+		 *
 		 * @return 画像ファイル形式名
 		 */
 		private String getFormatText() {
@@ -284,7 +279,7 @@ public class ImageEncoder extends BaseEncoder {
 
 		/**
 		 * 等価判定.
-		 * 
+		 *
 		 * @param format
 		 *            ImageFormatオブジェクト
 		 * @return 等しければtrue.

@@ -9,10 +9,11 @@ import jp.kt.tool.Validator;
  * MimeTypeの管理クラス.
  * <p>
  * 以下の物が取得可能です。
- * <table border='1'>
+ * <table summary="MIMEタイプ一覧" border="1">
  * <tr>
  * <th>MIME Media Type</th>
  * <th>拡張子</th>
+ * </tr>
  * <tr>
  * <td>application/andrew-inset</td>
  * <td>ez&nbsp;</td>
@@ -1350,7 +1351,6 @@ import jp.kt.tool.Validator;
  * <td>vrm&nbsp;vrml&nbsp;wrl&nbsp;</td>
  * </tr>
  * </table>
- * </p>
  */
 public final class MimeType {
 	/** 拡張子からMimeTypeへの変換Map */
@@ -1733,7 +1733,7 @@ public final class MimeType {
 
 	/**
 	 * 変換Mapにセットします.
-	 * 
+	 *
 	 * @param mimeType
 	 *            MimeType
 	 * @param extensions
@@ -1750,7 +1750,7 @@ public final class MimeType {
 
 	/**
 	 * 拡張子から判定してMimeTypeを取得.
-	 * 
+	 *
 	 * @param filename
 	 *            ファイル名、もしくは拡張子そのもの
 	 * @return MimeType.<br>
@@ -1779,7 +1779,7 @@ public final class MimeType {
 
 	/**
 	 * MimeTypeから判定して拡張子を取得.
-	 * 
+	 *
 	 * @param mimeType
 	 *            MimeType
 	 * @return 拡張子群.<br>

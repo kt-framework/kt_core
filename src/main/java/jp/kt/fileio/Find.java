@@ -22,7 +22,7 @@ import jp.kt.fileio.FindCondition.Type;
  * 対象ディレクトリ以下を再帰的に検索します.<br>
  * ファイル名やディレクトリ名は正規表現で指定する.
  * </p>
- * 
+ *
  * @author tatsuya.kumon
  */
 public class Find extends SimpleFileVisitor<Path> {
@@ -49,7 +49,7 @@ public class Find extends SimpleFileVisitor<Path> {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param type
 	 *            検索タイプ
 	 * @param nameRegex
@@ -93,7 +93,7 @@ public class Find extends SimpleFileVisitor<Path> {
 
 	/**
 	 * マッチング処理.
-	 * 
+	 *
 	 * @param path
 	 *            対象パス
 	 * @param attrs
@@ -166,7 +166,7 @@ public class Find extends SimpleFileVisitor<Path> {
 
 	/**
 	 * 検索結果を返す.
-	 * 
+	 *
 	 * @return 検索結果のパスリスト
 	 */
 	private List<String> getResult() {
@@ -175,11 +175,12 @@ public class Find extends SimpleFileVisitor<Path> {
 
 	/**
 	 * Find処理実行.
-	 * 
+	 *
 	 * @param cond
 	 *            Find条件
 	 * @return 検索されたディレクトリもしくはファイルの絶対パスのリスト
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public static List<String> execute(FindCondition cond) throws IOException {
 		// visitorクラス生成

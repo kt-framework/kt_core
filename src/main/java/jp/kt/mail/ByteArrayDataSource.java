@@ -24,7 +24,9 @@ class ByteArrayDataSource implements DataSource {
 	 * コンストラクタ.
 	 *
 	 * @param data
+	 *            バイトデータ
 	 * @param type
+	 *            コンテントタイプ
 	 */
 	public ByteArrayDataSource(byte[] data, String type) {
 		this.data = data;
@@ -36,6 +38,7 @@ class ByteArrayDataSource implements DataSource {
 	 *
 	 * @return InputStream
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public InputStream getInputStream() throws IOException {
 		if (data == null)
@@ -52,20 +55,12 @@ class ByteArrayDataSource implements DataSource {
 		return type;
 	}
 
-	/**
-	 * 未実装. <br>
-	 * 必ずIOExceptionが発生するようになっています.
-	 *
-	 * @throws IOException
-	 */
+	@Override
 	public OutputStream getOutputStream() throws IOException {
 		throw new IOException("cannot do this");
 	}
 
-	/**
-	 * 未実装. <br>
-	 * ダミーの文字列を返却.
-	 */
+	@Override
 	public String getName() {
 		return "dummy";
 	}

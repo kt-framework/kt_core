@@ -10,7 +10,6 @@ import java.util.Vector;
 import javax.imageio.ImageIO;
 
 import jp.kt.exception.KtException;
-import jp.kt.imagetool.BaseEncoder;
 
 /**
  * 複数の静止画像ファイルを結合して、アニメーションGIFを生成するクラスです.
@@ -57,8 +56,7 @@ public class GifAnimationEncoder extends BaseEncoder {
 	 * @throws KtException
 	 *             イメージが存在しないとき
 	 */
-	public void encode(String outputImagePath) throws IOException,
-			KtException {
+	public void encode(String outputImagePath) throws IOException, KtException {
 		// 出力先ディレクトリが存在するかチェック
 		super.outputImagePathCheck(outputImagePath);
 		FileOutputStream outs = null;
@@ -169,10 +167,9 @@ public class GifAnimationEncoder extends BaseEncoder {
 	 * @param imgPath
 	 *            画像ファイルのパス
 	 * @throws IOException
-	 * @throws KtException
+	 *             入出力エラーが発生した場合
 	 */
-	public void addImage(String imgPath) throws IOException,
-			KtException {
+	public void addImage(String imgPath) throws IOException {
 		this.addImage(imgPath, this.defaultDelay);
 	}
 
@@ -186,10 +183,9 @@ public class GifAnimationEncoder extends BaseEncoder {
 	 * @param delayTime
 	 *            表示時間（ミリ秒）
 	 * @throws IOException
-	 * @throws KtException
+	 *             入出力エラーが発生した場合
 	 */
-	public void addImage(String imgPath, int delayTime) throws IOException,
-			KtException {
+	public void addImage(String imgPath, int delayTime) throws IOException {
 		// 出力先ディレクトリが存在するかチェック
 		super.inputImagePathCheck(imgPath);
 		BufferedImage image = ImageIO.read(new File(imgPath));
@@ -207,10 +203,9 @@ public class GifAnimationEncoder extends BaseEncoder {
 	 * @param delayTime
 	 *            表示時間（ミリ秒）
 	 * @throws IOException
-	 * @throws KtException
+	 *             入出力エラーが発生した場合
 	 */
-	void addImage(BufferedImage image, int delayTime) throws IOException,
-			KtException {
+	void addImage(BufferedImage image, int delayTime) throws IOException {
 		gifAnimationFrames.add(new GifAnimationFrame(image, delayTime));
 		this.width = image.getWidth(null);
 		this.height = image.getHeight(null);
@@ -225,8 +220,7 @@ public class GifAnimationEncoder extends BaseEncoder {
 		return gifAnimationFrames.size();
 	}
 
-	private static void writeString(OutputStream out, String str)
-			throws IOException {
+	private void writeString(OutputStream out, String str) throws IOException {
 		byte[] buf = str.getBytes();
 		out.write(buf);
 	}
