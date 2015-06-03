@@ -32,7 +32,6 @@ package org.json;
  * @version 2010-12-24
  */
 public class HTTPTokener extends JSONTokener {
-
 	/**
 	 * Construct an HTTPTokener from a string.
 	 *
@@ -46,8 +45,9 @@ public class HTTPTokener extends JSONTokener {
 	/**
 	 * Get the next token or string. This is used in parsing HTTP headers.
 	 *
-	 * @throws JSONException
 	 * @return A String.
+	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public String nextToken() throws JSONException {
 		char c;

@@ -48,6 +48,7 @@ public class CookieList {
 	 *            A cookie list string
 	 * @return A JSONObject
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONObject toJSONObject(String string) throws JSONException {
 		JSONObject jo = new JSONObject();
@@ -71,6 +72,7 @@ public class CookieList {
 	 *            A JSONObject
 	 * @return A cookie list string
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static String toString(JSONObject jo) throws JSONException {
 		boolean b = false;

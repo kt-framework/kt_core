@@ -32,7 +32,6 @@ package org.json;
  * @version 2010-12-24
  */
 public class Cookie {
-
 	/**
 	 * Produce a copy of a string in which the characters '+', '%', '=', ';' and
 	 * control characters are replaced with "%hh". This is a gentle form of URL
@@ -80,6 +79,7 @@ public class Cookie {
 	 * @return A JSONObject containing "name", "value", and possibly other
 	 *         members.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONObject toJSONObject(String string) throws JSONException {
 		String name;
@@ -117,6 +117,7 @@ public class Cookie {
 	 *            A JSONObject
 	 * @return A cookie specification string
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static String toString(JSONObject jo) throws JSONException {
 		StringBuffer sb = new StringBuffer();

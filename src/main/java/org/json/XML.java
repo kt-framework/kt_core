@@ -34,8 +34,7 @@ import java.util.Iterator;
  * @version 2011-02-11
  */
 public class XML {
-
-	/** The Character '&'. */
+	/** The Character '&amp;'. */
 	public static final Character AMP = new Character('&');
 
 	/** The Character '''. */
@@ -47,10 +46,10 @@ public class XML {
 	/** The Character '='. */
 	public static final Character EQ = new Character('=');
 
-	/** The Character '>'. */
+	/** The Character '&gt;'. */
 	public static final Character GT = new Character('>');
 
-/** The Character '<'. */
+	/** The Character '&lt;'. */
 	public static final Character LT = new Character('<');
 
 	/** The Character '?'. */
@@ -65,12 +64,11 @@ public class XML {
 	/**
 	 * Replace special characters with XML escapes:
 	 *
-	 * <pre>
-	 * &amp; <small>(ampersand)</small> is replaced by &amp;amp;
-	 * &lt; <small>(less than)</small> is replaced by &amp;lt;
-	 * &gt; <small>(greater than)</small> is replaced by &amp;gt;
-	 * &quot; <small>(double quote)</small> is replaced by &amp;quot;
-	 * </pre>
+	 * <p>
+	 * &amp; <small>(ampersand)</small> is replaced by &amp;amp;<br>
+	 * &lt; <small>(less than)</small> is replaced by &amp;lt;<br>
+	 * &gt; <small>(greater than)</small> is replaced by &amp;gt;<br>
+	 * &quot; <small>(double quote)</small> is replaced by &amp;quot;<br>
 	 *
 	 * @param string
 	 *            The string to be escaped.
@@ -108,7 +106,9 @@ public class XML {
 	 * allowed in tagNames and attributes.
 	 *
 	 * @param string
+	 *            String
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static void noSpace(String string) throws JSONException {
 		int i, length = string.length();
@@ -237,8 +237,8 @@ public class XML {
 						if (!(token instanceof String)) {
 							throw x.syntaxError("Missing value");
 						}
-						jsonobject.accumulate(string, XML
-								.stringToValue((String) token));
+						jsonobject.accumulate(string,
+								XML.stringToValue((String) token));
 						token = null;
 					} else {
 						jsonobject.accumulate(string, "");
@@ -270,8 +270,8 @@ public class XML {
 						} else if (token instanceof String) {
 							string = (String) token;
 							if (string.length() > 0) {
-								jsonobject.accumulate("content", XML
-										.stringToValue(string));
+								jsonobject.accumulate("content",
+										XML.stringToValue(string));
 							}
 
 							// Nested element
@@ -282,8 +282,8 @@ public class XML {
 									context.accumulate(tagName, "");
 								} else if (jsonobject.length() == 1
 										&& jsonobject.opt("content") != null) {
-									context.accumulate(tagName, jsonobject
-											.opt("content"));
+									context.accumulate(tagName,
+											jsonobject.opt("content"));
 								} else {
 									context.accumulate(tagName, jsonobject);
 								}
@@ -364,13 +364,14 @@ public class XML {
 	 * name/value pairs and arrays of values. JSON does not does not like to
 	 * distinguish between elements and attributes. Sequences of similar
 	 * elements are represented as JSONArrays. Content text may be placed in a
-	 * "content" member. Comments, prologs, DTDs, and <code>&lt;[ [ ]]></code>
-	 * are ignored.
+	 * "content" member. Comments, prologs, DTDs, and
+	 * <code>&lt;[ [ ]]&gt;</code> are ignored.
 	 *
 	 * @param string
 	 *            The source string.
 	 * @return A JSONObject containing the structured data from the XML string.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONObject toJSONObject(String string) throws JSONException {
 		JSONObject jo = new JSONObject();
@@ -388,6 +389,7 @@ public class XML {
 	 *            A JSONObject.
 	 * @return A string.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static String toString(Object object) throws JSONException {
 		return toString(object, null);
@@ -402,6 +404,7 @@ public class XML {
 	 *            The optional name of the enclosing tag.
 	 * @return A string.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static String toString(Object object, String tagName)
 			throws JSONException {

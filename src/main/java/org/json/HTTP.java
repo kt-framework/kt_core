@@ -33,7 +33,6 @@ import java.util.Iterator;
  * @version 2010-12-24
  */
 public class HTTP {
-
 	/** Carriage return/line feed. */
 	public static final String CRLF = "\r\n";
 
@@ -64,7 +63,7 @@ public class HTTP {
 	 *
 	 * <pre>
 	 *    Date: Sun, 26 May 2002 18:06:04 GMT
-	 *    Cookie: Q=q2=PPEAsg--; B=677gi6ouf29bn&b=2&f=s
+	 *    Cookie: Q=q2=PPEAsg--; B=677gi6ouf29bn&amp;b=2&amp;f=s
 	 *    Cache-Control: no-cache
 	 * </pre>
 	 *
@@ -73,7 +72,7 @@ public class HTTP {
 	 * <pre>
 	 * {...
 	 *    Date: "Sun, 26 May 2002 18:06:04 GMT",
-	 *    Cookie: "Q=q2=PPEAsg--; B=677gi6ouf29bn&b=2&f=s",
+	 *    Cookie: "Q=q2=PPEAsg--; B=677gi6ouf29bn&amp;b=2&amp;f=s",
 	 *    "Cache-Control": "no-cache",
 	 * ...}
 	 * </pre>
@@ -86,6 +85,7 @@ public class HTTP {
 	 * @return A JSONObject containing the elements and attributes of the XML
 	 *         string.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONObject toJSONObject(String string) throws JSONException {
 		JSONObject jo = new JSONObject();

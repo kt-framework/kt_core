@@ -20,11 +20,22 @@ public class JSONException extends Exception {
 		super(message);
 	}
 
+	/**
+	 * コンストラクタ.
+	 *
+	 * @param cause
+	 *            元の例外
+	 */
 	public JSONException(Throwable cause) {
 		super(cause.getMessage());
 		this.cause = cause;
 	}
 
+	/**
+	 * 元の例外を取得する.
+	 *
+	 * @return 元の例外
+	 */
 	public Throwable getCause() {
 		return this.cause;
 	}

@@ -63,7 +63,8 @@ import java.util.Map;
  * before the closing bracket.</li>
  * <li>The <code>null</code> value will be inserted when there is <code>,</code>
  * &nbsp;<small>(comma)</small> elision.</li>
- * <li>Strings may be quoted with <code>'</code>&nbsp;<small>(single quote)</small>.</li>
+ * <li>Strings may be quoted with <code>'</code>&nbsp;<small>(single
+ * quote)</small>.</li>
  * <li>Strings do not need to be quoted at all if they do not begin with a quote
  * or single quote, and if they do not contain leading or trailing spaces, and
  * if they do not contain any of these characters:
@@ -79,7 +80,6 @@ import java.util.Map;
  * @version 2010-12-28
  */
 public class JSONArray {
-
 	/**
 	 * The arrayList where the JSONArray's properties are kept.
 	 */
@@ -165,6 +165,8 @@ public class JSONArray {
 	/**
 	 * Construct a JSONArray from an array
 	 *
+	 * @param array
+	 *            配列オブジェクト
 	 * @throws JSONException
 	 *             If not an array.
 	 */
@@ -869,6 +871,7 @@ public class JSONArray {
 	 *         bracket)</small> and ending with <code>]</code>
 	 *         &nbsp;<small>(right bracket)</small>.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public String toString(int indentFactor) throws JSONException {
 		return toString(indentFactor, 0);
@@ -924,8 +927,11 @@ public class JSONArray {
 	 * <p>
 	 * Warning: This method assumes that the data structure is acyclical.
 	 *
+	 * @param writer
+	 *            Writer
 	 * @return The writer.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public Writer write(Writer writer) throws JSONException {
 		try {

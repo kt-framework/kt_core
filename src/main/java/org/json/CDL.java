@@ -97,6 +97,7 @@ public class CDL {
 	 *            A JSONTokener of the source text.
 	 * @return A JSONArray of strings.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONArray rowToJSONArray(JSONTokener x) throws JSONException {
 		JSONArray ja = new JSONArray();
@@ -136,6 +137,7 @@ public class CDL {
 	 *            A JSONTokener of the source text.
 	 * @return A JSONObject combining the names and values.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONObject rowToJSONObject(JSONArray names, JSONTokener x)
 			throws JSONException {
@@ -192,6 +194,7 @@ public class CDL {
 	 *            The comma delimited text.
 	 * @return A JSONArray of JSONObjects.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONArray toJSONArray(String string) throws JSONException {
 		return toJSONArray(new JSONTokener(string));
@@ -205,6 +208,7 @@ public class CDL {
 	 *            The JSONTokener containing the comma delimited text.
 	 * @return A JSONArray of JSONObjects.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONArray toJSONArray(JSONTokener x) throws JSONException {
 		return toJSONArray(rowToJSONArray(x), x);
@@ -220,6 +224,7 @@ public class CDL {
 	 *            The comma delimited text.
 	 * @return A JSONArray of JSONObjects.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONArray toJSONArray(JSONArray names, String string)
 			throws JSONException {
@@ -236,6 +241,7 @@ public class CDL {
 	 *            A JSONTokener of the source text.
 	 * @return A JSONArray of JSONObjects.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static JSONArray toJSONArray(JSONArray names, JSONTokener x)
 			throws JSONException {
@@ -264,6 +270,7 @@ public class CDL {
 	 *            A JSONArray of JSONObjects.
 	 * @return A comma delimited text.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static String toString(JSONArray ja) throws JSONException {
 		JSONObject jo = ja.optJSONObject(0);
@@ -286,6 +293,7 @@ public class CDL {
 	 *            A JSONArray of JSONObjects.
 	 * @return A comma delimited text.
 	 * @throws JSONException
+	 *             JSON処理時に例外発生した場合
 	 */
 	public static String toString(JSONArray names, JSONArray ja)
 			throws JSONException {
