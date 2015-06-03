@@ -9,6 +9,8 @@ import java.util.List;
  * 集合の中からランダムにデータを抽出するためのツールクラス.
  *
  * @author tatsuya.kumon
+ * @param <E>
+ *            ランダム抽出する要素の型
  */
 public class RandomSelector<E> {
 	/** 抽出対象の集合 */

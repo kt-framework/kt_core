@@ -8,7 +8,7 @@ import java.util.Locale;
 
 /**
  * {@link Date}オブジェクトを操作するクラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public class DateUtil {
@@ -21,7 +21,7 @@ public class DateUtil {
 	/**
 	 * 年月日から{@link Date}オブジェクトを生成.<br>
 	 * 時刻は0時0分0秒でセットする.
-	 * 
+	 *
 	 * @param y
 	 *            年
 	 * @param m
@@ -46,7 +46,7 @@ public class DateUtil {
 	/**
 	 * 年月日から{@link Date}オブジェクトを生成.<br>
 	 * 時刻は0時0分0秒でセットする.
-	 * 
+	 *
 	 * @param y
 	 *            年
 	 * @param m
@@ -75,7 +75,7 @@ public class DateUtil {
 	 * <p>
 	 * デフォルトロケール（日本）のフォーマットの文字列を変換する.
 	 * </p>
-	 * 
+	 *
 	 * @param datetimeText
 	 *            日時を表す文字列
 	 * @param pattern
@@ -83,6 +83,8 @@ public class DateUtil {
 	 *            {@link java.text.SimpleDateFormat} にて定義されている形式で指定すること.
 	 * @return {@link Date} オブジェクト
 	 * @throws ParseException
+	 *             文字列が日付解析できない場合
+	 *
 	 */
 	public static Date getDate(String datetimeText, String pattern)
 			throws ParseException {
@@ -96,7 +98,7 @@ public class DateUtil {
 	 * <p>
 	 * {@link Locale#US} フォーマットの文字列を変換する.
 	 * </p>
-	 * 
+	 *
 	 * @param datetimeText
 	 *            日時を表す文字列
 	 * @param pattern
@@ -104,6 +106,7 @@ public class DateUtil {
 	 *            {@link java.text.SimpleDateFormat} にて定義されている形式で指定すること.
 	 * @return {@link Date} オブジェクト
 	 * @throws ParseException
+	 *             文字列が日付解析できない場合
 	 */
 	public static Date getDateUsFormat(String datetimeText, String pattern)
 			throws ParseException {
@@ -113,7 +116,7 @@ public class DateUtil {
 
 	/**
 	 * {@link Date}型の日時を年・月・日・時・分・秒・ミリ秒に分けてint配列で返す.
-	 * 
+	 *
 	 * @param date
 	 *            {@link Date} オブジェクト
 	 * @return サイズが7のint配列.ただし引数がnullの場合はnullを返す.
@@ -134,7 +137,7 @@ public class DateUtil {
 	/**
 	 * 指定日数を加算する.<br>
 	 * マイナス指定も可.
-	 * 
+	 *
 	 * @param date
 	 *            元のDate
 	 * @param day
@@ -151,7 +154,7 @@ public class DateUtil {
 	/**
 	 * 指定月数を加算する.<br>
 	 * マイナス指定も可.
-	 * 
+	 *
 	 * @param date
 	 *            元の{@link Date}
 	 * @param month
@@ -169,7 +172,7 @@ public class DateUtil {
 	 * 指定の時間加算する.<br>
 	 * マイナス指定も可.<br>
 	 * 変更しない項目は0を指定する.
-	 * 
+	 *
 	 * @param date
 	 *            元の{@link Date}
 	 * @param hour
@@ -200,7 +203,7 @@ public class DateUtil {
 	 * 第一引数＝第二引数の場合、true.<br>
 	 * 第一引数＞第二引数の場合、false.
 	 * </p>
-	 * 
+	 *
 	 * @param date1
 	 *            比較対象の{@link Date}
 	 * @param date2
@@ -217,7 +220,7 @@ public class DateUtil {
 
 	/**
 	 * 日付は変えず、時刻を0時0分0秒にする.
-	 * 
+	 *
 	 * @param date
 	 *            対象の{@link Date}
 	 * @return 時刻を0時0分0秒にした{@link Date}オブジェクト
@@ -244,7 +247,7 @@ public class DateUtil {
 	 * 金曜日：{@link Calendar#FRIDAY}<br>
 	 * 土曜日：{@link Calendar#SATURDAY}
 	 * </p>
-	 * 
+	 *
 	 * @param date
 	 *            対象の {@link Date}
 	 * @return 曜日
@@ -262,7 +265,7 @@ public class DateUtil {
 	 * また、同一日の場合は0を返します.<br>
 	 * 算出の際、Dateオブジェクトの時刻部分は無視されます.
 	 * </p>
-	 * 
+	 *
 	 * @param date1
 	 *            比較対象Date
 	 * @param date2

@@ -14,7 +14,7 @@ import jp.kt.exception.KtException;
  * AESアルゴリズムで暗号化します.<br>
  * 鍵長は128ビットのみ指定可能です.
  * </p>
- * 
+ *
  * @author tatsuya.kumon
  */
 public class Crypto {
@@ -35,13 +35,14 @@ public class Crypto {
 	 * <p>
 	 * 暗号化文字列はBase64文字列となります.
 	 * </p>
-	 * 
+	 *
 	 * @param src
 	 *            元のバイトデータ
 	 * @param key
 	 *            キー
 	 * @return 暗号化されたBase64文字列
 	 * @throws Exception
+	 *             暗号化処理時に例外発生した場合
 	 */
 	public static String encodeBase64(byte[] src, byte[] key) throws Exception {
 		// 暗号化
@@ -52,13 +53,14 @@ public class Crypto {
 
 	/**
 	 * 暗号化.
-	 * 
+	 *
 	 * @param src
 	 *            元のバイトデータ
 	 * @param key
 	 *            キー
 	 * @return 暗号化されたバイト配列
 	 * @throws Exception
+	 *             暗号化処理時に例外発生した場合
 	 */
 	public static byte[] encode(byte[] src, byte[] key) throws Exception {
 		// キーの生成
@@ -73,13 +75,14 @@ public class Crypto {
 
 	/**
 	 * 複合化.
-	 * 
+	 *
 	 * @param enc
 	 *            暗号化されたBase64文字列.
 	 * @param key
 	 *            キー
 	 * @return 複合化されたバイト配列
 	 * @throws Exception
+	 *             複合化処理時に例外発生した場合
 	 */
 	public static byte[] decodeBase64(String enc, byte[] key) throws Exception {
 		// Base64文字列をbyte配列に変換
@@ -90,13 +93,14 @@ public class Crypto {
 
 	/**
 	 * 複合化.
-	 * 
+	 *
 	 * @param enc
 	 *            暗号化されたバイト配列.
 	 * @param key
 	 *            キー
 	 * @return 複合化されたバイト配列
 	 * @throws Exception
+	 *             複合化処理時に例外発生した場合
 	 */
 	public static byte[] decode(byte[] enc, byte[] key) throws Exception {
 		// キーの生成
@@ -111,7 +115,7 @@ public class Crypto {
 
 	/**
 	 * キー生成.
-	 * 
+	 *
 	 * @param key
 	 *            キー
 	 * @return Key

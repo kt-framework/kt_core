@@ -38,7 +38,7 @@ import org.apache.tools.zip.ZipEncodingHelper;
  * The TarOutputStream writes a UNIX tar archive as an OutputStream. Methods are
  * provided to put entries, and then write their contents by writing to this
  * stream using write().
- * 
+ *
  */
 public class TarOutputStream extends FilterOutputStream {
 	/** Fail if a long file name is required in the archive. */
@@ -96,7 +96,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Constructor for TarInputStream.
-	 * 
+	 *
 	 * @param os
 	 *            the output stream to use
 	 */
@@ -106,7 +106,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Constructor for TarInputStream.
-	 * 
+	 *
 	 * @param os
 	 *            the output stream to use
 	 * @param encoding
@@ -118,7 +118,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Constructor for TarInputStream.
-	 * 
+	 *
 	 * @param os
 	 *            the output stream to use
 	 * @param blockSize
@@ -130,7 +130,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Constructor for TarInputStream.
-	 * 
+	 *
 	 * @param os
 	 *            the output stream to use
 	 * @param blockSize
@@ -144,7 +144,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Constructor for TarInputStream.
-	 * 
+	 *
 	 * @param os
 	 *            the output stream to use
 	 * @param blockSize
@@ -158,7 +158,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Constructor for TarInputStream.
-	 * 
+	 *
 	 * @param os
 	 *            the output stream to use
 	 * @param blockSize
@@ -184,9 +184,9 @@ public class TarOutputStream extends FilterOutputStream {
 	/**
 	 * Set the long file mode. This can be LONGFILE_ERROR(0),
 	 * LONGFILE_TRUNCATE(1) or LONGFILE_GNU(2). This specifies the treatment of
-	 * long file names (names >= TarConstants.NAMELEN). Default is
+	 * long file names (names &gt;= TarConstants.NAMELEN). Default is
 	 * LONGFILE_ERROR.
-	 * 
+	 *
 	 * @param longFileMode
 	 *            the mode to use
 	 */
@@ -199,7 +199,7 @@ public class TarOutputStream extends FilterOutputStream {
 	 * BIGNUMBER_POSIX(1) or BIGNUMBER_STAR(2). This specifies the treatment of
 	 * big files (sizes &gt; TarConstants.MAXSIZE) and other numeric values to
 	 * big to fit into a traditional tar header. Default is BIGNUMBER_ERROR.
-	 * 
+	 *
 	 * @param bigNumberMode
 	 *            the mode to use
 	 */
@@ -209,6 +209,9 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Whether to add a PAX extension header for non-ASCII file names.
+	 *
+	 * @param b
+	 *            PAX extension header
 	 */
 	public void setAddPaxHeadersForNonAsciiNames(boolean b) {
 		addPaxHeadersForNonAsciiNames = b;
@@ -216,7 +219,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Sets the debugging flag.
-	 * 
+	 *
 	 * @param debugF
 	 *            True to turn on debugging.
 	 */
@@ -226,7 +229,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Sets the debugging flag in this stream's TarBuffer.
-	 * 
+	 *
 	 * @param debug
 	 *            True to turn on debugging.
 	 */
@@ -236,11 +239,11 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Ends the TAR archive without closing the underlying OutputStream.
-	 * 
+	 *
 	 * An archive consists of a series of file entries terminated by an
 	 * end-of-archive entry, which consists of two 512 blocks of zero bytes.
 	 * POSIX.1 requires two EOF records, like some other implementations.
-	 * 
+	 *
 	 * @throws IOException
 	 *             on error
 	 */
@@ -261,7 +264,7 @@ public class TarOutputStream extends FilterOutputStream {
 	/**
 	 * Ends the TAR archive and closes the underlying OutputStream. This means
 	 * that finish() is called followed by calling the TarBuffer's close().
-	 * 
+	 *
 	 * @throws IOException
 	 *             on error
 	 */
@@ -280,7 +283,7 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Get the record size being used by this stream's TarBuffer.
-	 * 
+	 *
 	 * @return The TarBuffer record size.
 	 */
 	public int getRecordSize() {
@@ -294,7 +297,7 @@ public class TarOutputStream extends FilterOutputStream {
 	 * write the entry's contents. Once the contents are written, closeEntry()
 	 * <B>MUST</B> be called to ensure that all buffered data is completely
 	 * written to the output stream.
-	 * 
+	 *
 	 * @param entry
 	 *            The TarEntry to be written to the archive.
 	 * @throws IOException
@@ -375,7 +378,7 @@ public class TarOutputStream extends FilterOutputStream {
 	 * stream in order to satisfy the buffer's record based writes. Thus, there
 	 * may be data fragments still being assembled that must be written to the
 	 * output stream before this entry is closed and the next entry written.
-	 * 
+	 *
 	 * @throws IOException
 	 *             on error
 	 */
@@ -407,9 +410,9 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Writes a byte to the current tar archive entry.
-	 * 
+	 *
 	 * This method simply calls read( byte[], int, int ).
-	 * 
+	 *
 	 * @param b
 	 *            The byte written.
 	 * @throws IOException
@@ -424,9 +427,9 @@ public class TarOutputStream extends FilterOutputStream {
 
 	/**
 	 * Writes bytes to the current tar archive entry.
-	 * 
+	 *
 	 * This method simply calls write( byte[], int, int ).
-	 * 
+	 *
 	 * @param wBuf
 	 *            The buffer to write to the archive.
 	 * @throws IOException
@@ -443,7 +446,7 @@ public class TarOutputStream extends FilterOutputStream {
 	 * (painfully) aware of the record buffering required by TarBuffer, and
 	 * manages buffers that are not a multiple of recordsize in length,
 	 * including assembling records from small buffers.
-	 * 
+	 *
 	 * @param wBuf
 	 *            The buffer to write to the archive.
 	 * @param wOffset

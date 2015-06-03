@@ -17,7 +17,6 @@ import java.util.List;
  * まえだ<br>
  * うめだ<br>
  * かとう<br>
- * <p>
  * <blockquote>
  *
  * <pre style="font-size:small;">
@@ -35,15 +34,12 @@ import java.util.List;
  * sort.sort();
  * </pre>
  *
- * </blockquote>
- * </p>
- * ソート処理後のPlainTextの内容は次のようになります。<br>
+ * </blockquote> ソート処理後のPlainTextの内容は次のようになります。<br>
  * まえだ<br>
  * ふじた<br>
  * くもん<br>
  * かとう<br>
  * うめだ<br>
- * </p>
  * <hr style="border-style:dashed">
  * <p>
  * 【サンプル2：2次元配列データの複合キーによるソート】<br>
@@ -54,7 +50,6 @@ import java.util.List;
  * "net","まえだ","90"<br>
  * "net","うめだ","89"<br>
  * "sys","かとう","75"<br>
- * <p>
  * <blockquote>
  *
  * <pre style="font-size:small;">
@@ -70,15 +65,12 @@ import java.util.List;
  * sort.sort();
  * </pre>
  *
- * </blockquote>
- * </p>
- * ソート処理後のCsvTextの内容は次のようになります。<br>
+ * </blockquote> ソート処理後のCsvTextの内容は次のようになります。<br>
  * "net","まえだ","90"<br>
  * "net","うめだ","89"<br>
  * "net","くもん","40"<br>
  * "sys","かとう","75"<br>
  * "sys","ふじた","70"<br>
- * </p>
  *
  * @author tatsuya.kumon
  */

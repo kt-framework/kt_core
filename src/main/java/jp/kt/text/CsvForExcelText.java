@@ -24,6 +24,7 @@ public final class CsvForExcelText extends CsvBaseText {
 	 * @param allText
 	 *            全文
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public CsvForExcelText(String allText) throws IOException {
 		super(allText);

@@ -25,13 +25,16 @@ import java.io.IOException;
  *
  * <p>
  * The C structure for a sparse entry is:
+ *
  * <pre>
  * struct posix_header {
  * struct sparse sp[21]; // TarConstants.SPARSELEN_GNU_SPARSE     - offset 0
  * char isextended;      // TarConstants.ISEXTENDEDLEN_GNU_SPARSE - offset 504
  * };
  * </pre>
+ *
  * Whereas, "struct sparse" is:
+ *
  * <pre>
  * struct sparse {
  * char offset[12];   // offset 0
@@ -41,23 +44,29 @@ import java.io.IOException;
  */
 
 public class TarArchiveSparseEntry implements TarConstants {
-    /** If an extension sparse header follows. */
-    private boolean isExtended;
+	/** If an extension sparse header follows. */
+	private boolean isExtended;
 
-    /**
-     * Construct an entry from an archive's header bytes. File is set
-     * to null.
-     *
-     * @param headerBuf The header bytes from a tar archive entry.
-     * @throws IOException on unknown format
-     */
-    public TarArchiveSparseEntry(byte[] headerBuf) throws IOException {
-        int offset = 0;
-        offset += SPARSELEN_GNU_SPARSE;
-        isExtended = TarUtils.parseBoolean(headerBuf, offset);
-    }
+	/**
+	 * Construct an entry from an archive's header bytes. File is set to null.
+	 *
+	 * @param headerBuf
+	 *            The header bytes from a tar archive entry.
+	 * @throws IOException
+	 *             on unknown format
+	 */
+	public TarArchiveSparseEntry(byte[] headerBuf) throws IOException {
+		int offset = 0;
+		offset += SPARSELEN_GNU_SPARSE;
+		isExtended = TarUtils.parseBoolean(headerBuf, offset);
+	}
 
-    public boolean isExtended() {
-        return isExtended;
-    }
+	/**
+	 * 拡張フラグの取得.
+	 *
+	 * @return 拡張フラグ
+	 */
+	public boolean isExtended() {
+		return isExtended;
+	}
 }

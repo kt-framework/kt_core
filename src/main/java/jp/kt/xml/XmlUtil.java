@@ -29,7 +29,7 @@ import org.xml.sax.SAXParseException;
 
 /**
  * XML解析・生成処理クラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public class XmlUtil {
@@ -47,11 +47,12 @@ public class XmlUtil {
 
 	/**
 	 * {@link XmlRoot} オブジェクトから、UTF-8のXML文書を生成する.
-	 * 
+	 *
 	 * @param root
 	 *            {@link XmlRoot} オブジェクト
 	 * @return XML文書
 	 * @throws Exception
+	 *             XML生成中に例外発生した場合
 	 */
 	public static String create(XmlRoot root) throws Exception {
 		// XmlRootオブジェクトからDocumentオブジェクトに変換
@@ -77,11 +78,12 @@ public class XmlUtil {
 
 	/**
 	 * {@link XmlRoot} オブジェクトから、Shift_JISのXML文書を生成する.
-	 * 
+	 *
 	 * @param root
 	 *            {@link XmlRoot} オブジェクト
 	 * @return XML文書
 	 * @throws Exception
+	 *             XML生成中に例外発生した場合
 	 */
 	public static String createSjis(XmlRoot root) throws Exception {
 		// UTF-8で作成
@@ -92,7 +94,7 @@ public class XmlUtil {
 
 	/**
 	 * 再帰的にDocumentオブジェクトにセットする.
-	 * 
+	 *
 	 * @param itemList
 	 *            子要素リスト
 	 * @param document
@@ -141,7 +143,7 @@ public class XmlUtil {
 
 	/**
 	 * DocumentオブジェクトからXML文書生成.
-	 * 
+	 *
 	 * @param document
 	 *            Documentオブジェクト
 	 * @return XML文書
@@ -169,11 +171,12 @@ public class XmlUtil {
 	 * <p>
 	 * XML形式エラーの場合はnullを返します.
 	 * </p>
-	 * 
+	 *
 	 * @param xmlText
 	 *            XML文書
 	 * @return {@link XmlRoot} オブジェクト
 	 * @throws Exception
+	 *             XML解析中に例外発生した場合
 	 */
 	public static XmlRoot parse(String xmlText) throws Exception {
 		return parse(xmlText, CHARSET);
@@ -184,11 +187,12 @@ public class XmlUtil {
 	 * <p>
 	 * XML形式エラーの場合はnullを返します.
 	 * </p>
-	 * 
+	 *
 	 * @param xmlText
 	 *            XML文書
 	 * @return {@link XmlRoot} オブジェクト
 	 * @throws Exception
+	 *             XML解析中に例外発生した場合
 	 */
 	public static XmlRoot parseSjis(String xmlText) throws Exception {
 		String charsetSjis = KtProperties.getInstance().getSjisCharset();
@@ -202,13 +206,14 @@ public class XmlUtil {
 	 * <p>
 	 * XML形式エラーの場合はnullを返します.
 	 * </p>
-	 * 
+	 *
 	 * @param xmlText
 	 *            XML文書
 	 * @param charset
 	 *            文字コード
 	 * @return {@link XmlRoot} オブジェクト
 	 * @throws Exception
+	 *             XML解析中に例外発生した場合
 	 */
 	private static XmlRoot parse(String xmlText, String charset)
 			throws Exception {
@@ -239,7 +244,7 @@ public class XmlUtil {
 
 	/**
 	 * 再帰的に {@link XmlBaseElement} オブジェクトにセットする.
-	 * 
+	 *
 	 * @param nodeList
 	 *            ノードリスト
 	 * @param parentEle

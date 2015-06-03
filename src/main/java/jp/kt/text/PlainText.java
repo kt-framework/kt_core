@@ -4,7 +4,7 @@ import java.io.IOException;
 
 /**
  * プレーンテキスト形式.
- * 
+ *
  * @author tatsuya.kumon
  */
 public final class PlainText extends BaseText {
@@ -17,10 +17,11 @@ public final class PlainText extends BaseText {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param allText
 	 *            全文
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public PlainText(String allText) throws IOException {
 		super(allText);

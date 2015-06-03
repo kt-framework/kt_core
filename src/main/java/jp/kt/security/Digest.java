@@ -11,17 +11,17 @@ import jp.kt.prop.KtProperties;
 
 /**
  * 文字列のハッシュ化.
- * 
+ *
  * @author tatsuya.kumon
  */
 public class Digest {
-	/** 暗号化アルゴリズムMD5 */
+	/** ハッシュ化アルゴリズムMD5 */
 	private static final String ALGORITHM_MD5 = "MD5";
 
-	/** 暗号化アルゴリズムSHA-1 */
+	/** ハッシュ化アルゴリズムSHA-1 */
 	private static final String ALGORITHM_SHA1 = "SHA-1";
 
-	/** 暗号化アルゴリズムHMAC-SHA1 */
+	/** ハッシュ化アルゴリズムHMAC-SHA1 */
 	private static final String ALGORITHM_HMAC_SHA1 = "HmacSHA1";
 
 	/**
@@ -31,15 +31,16 @@ public class Digest {
 	}
 
 	/**
-	 * MD5での暗号化.
+	 * MD5でのハッシュ化.
 	 * <p>
 	 * 16進文字列で返す.
 	 * </p>
-	 * 
+	 *
 	 * @param text
-	 *            暗号化前のテキスト
-	 * @return 暗号化されたテキスト
+	 *            ハッシュ化前のテキスト
+	 * @return ハッシュ化されたテキスト
 	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
 	 */
 	public static String md5Hex(String text) throws Exception {
 		// 変換
@@ -49,15 +50,16 @@ public class Digest {
 	}
 
 	/**
-	 * MD5での暗号化.
+	 * MD5でのハッシュ化.
 	 * <p>
 	 * Base64文字列で返す.
 	 * </p>
-	 * 
+	 *
 	 * @param text
-	 *            暗号化前のテキスト
-	 * @return 暗号化されたテキスト
+	 *            ハッシュ化前のテキスト
+	 * @return ハッシュ化されたテキスト
 	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
 	 */
 	public static String md5Base64(String text) throws Exception {
 		// 変換
@@ -67,15 +69,16 @@ public class Digest {
 	}
 
 	/**
-	 * SHA-1での暗号化.
+	 * SHA-1でのハッシュ化.
 	 * <p>
 	 * 16進文字列で返す.
 	 * </p>
-	 * 
+	 *
 	 * @param text
-	 *            暗号化前のテキスト
-	 * @return 暗号化されたテキスト
+	 *            ハッシュ化前のテキスト
+	 * @return ハッシュ化されたテキスト
 	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
 	 */
 	public static String sha1Hex(String text) throws Exception {
 		// 変換
@@ -85,15 +88,16 @@ public class Digest {
 	}
 
 	/**
-	 * SHA-1での暗号化.
+	 * SHA-1でのハッシュ化.
 	 * <p>
 	 * Base64文字列で返す.
 	 * </p>
-	 * 
+	 *
 	 * @param text
-	 *            暗号化前のテキスト
-	 * @return 暗号化されたテキスト
+	 *            ハッシュ化前のテキスト
+	 * @return ハッシュ化されたテキスト
 	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
 	 */
 	public static String sha1Base64(String text) throws Exception {
 		// 変換
@@ -103,14 +107,15 @@ public class Digest {
 	}
 
 	/**
-	 * 暗号化.
-	 * 
+	 * ハッシュ化.
+	 *
 	 * @param text
-	 *            暗号化前のテキスト
+	 *            ハッシュ化前のテキスト
 	 * @param algorithm
 	 *            アルゴリズム
-	 * @return 暗号化されたbyte配列
+	 * @return ハッシュ化されたbyte配列
 	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
 	 */
 	private static byte[] digest(String text, String algorithm)
 			throws Exception {
@@ -123,17 +128,18 @@ public class Digest {
 	}
 
 	/**
-	 * HMAC-SHA1での暗号化.
+	 * HMAC-SHA1でのハッシュ化.
 	 * <p>
 	 * Base64文字列で返す.
 	 * </p>
-	 * 
+	 *
 	 * @param text
-	 *            暗号化前のテキスト
+	 *            ハッシュ化前のテキスト
 	 * @param key
 	 *            秘密鍵
-	 * @return 暗号化されたテキスト
+	 * @return ハッシュ化されたテキスト
 	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
 	 */
 	public static String hmacSha1Base64(String text, byte[] key)
 			throws Exception {

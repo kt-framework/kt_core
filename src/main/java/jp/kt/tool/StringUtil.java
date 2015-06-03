@@ -526,7 +526,7 @@ public class StringUtil {
 	 * <p>
 	 * 含まれるキーワードを全置換する.
 	 * </p>
-	 * 
+	 *
 	 * @param text
 	 *            変換対象文字列
 	 * @param before
@@ -561,7 +561,7 @@ public class StringUtil {
 	 * <p>
 	 * 前から検索して初めに見つかったキーワードのみを置換する.
 	 * </p>
-	 * 
+	 *
 	 * @param text
 	 *            変換対象文字列
 	 * @param before
@@ -584,8 +584,9 @@ public class StringUtil {
 
 	/**
 	 * 改行コードを除去する.
-	 * 
+	 *
 	 * @param text
+	 *            元の文字列
 	 * @return 改行コードを除去した文字列
 	 */
 	public static String removeLine(String text) {
@@ -598,7 +599,7 @@ public class StringUtil {
 
 	/**
 	 * 全角文字を半角文字へ変換する.
-	 * 
+	 *
 	 * @param text
 	 *            元の文字列
 	 * @return 変換された文字列
@@ -629,7 +630,7 @@ public class StringUtil {
 
 	/**
 	 * 半角文字を全角文字へ変換する.
-	 * 
+	 *
 	 * @param text
 	 *            元の文字列
 	 * @return 変換された文字列
@@ -669,7 +670,7 @@ public class StringUtil {
 
 	/**
 	 * 全角ひらがなを全角カタカナへ変換する.
-	 * 
+	 *
 	 * @param text
 	 *            元の文字列
 	 * @return 変換された文字列
@@ -698,7 +699,7 @@ public class StringUtil {
 	 * バイト数算出のための文字コードは固定でShift_JISを使用しているため、<br>
 	 * 半角英数などは1バイト、ひらがなや漢字などは2バイトで算出される.
 	 * </p>
-	 * 
+	 *
 	 * @param text
 	 *            カット前の文字列
 	 * @param maxByte
@@ -717,7 +718,7 @@ public class StringUtil {
 	 * バイト数算出のための文字コードは固定でShift_JISを使用しているため、<br>
 	 * 半角英数などは1バイト、ひらがなや漢字などは2バイトで算出される.
 	 * </p>
-	 * 
+	 *
 	 * @param text
 	 *            カット前の文字列
 	 * @param maxByte
@@ -751,7 +752,7 @@ public class StringUtil {
 
 	/**
 	 * 改行区切りの文字列をString配列に分割する.
-	 * 
+	 *
 	 * @param text
 	 *            元の文字列
 	 * @return 区切られたString配列
@@ -779,7 +780,7 @@ public class StringUtil {
 
 	/**
 	 * 半角英数で構成されたランダムな文字列を生成.
-	 * 
+	 *
 	 * @param size
 	 *            文字長
 	 * @return ランダム文字列
@@ -795,7 +796,7 @@ public class StringUtil {
 
 	/**
 	 * 半角数字で構成されたランダムな文字列を生成.
-	 * 
+	 *
 	 * @param size
 	 *            文字長
 	 * @return ランダム文字列
@@ -811,7 +812,7 @@ public class StringUtil {
 
 	/**
 	 * 文字列の分割.
-	 * 
+	 *
 	 * @param text
 	 *            元のテキスト
 	 * @param separator
@@ -829,7 +830,7 @@ public class StringUtil {
 
 	/**
 	 * 文字列の連結.
-	 * 
+	 *
 	 * @param array
 	 *            連結対象の配列
 	 * @param separator
@@ -852,7 +853,7 @@ public class StringUtil {
 
 	/**
 	 * 文字列の連結.
-	 * 
+	 *
 	 * @param iterable
 	 *            連結対象のリスト
 	 * @param separator
@@ -876,7 +877,7 @@ public class StringUtil {
 
 	/**
 	 * サロゲート文字を除去する.
-	 * 
+	 *
 	 * @param text
 	 *            元のテキスト
 	 * @return サロゲート文字が除去されたテキスト

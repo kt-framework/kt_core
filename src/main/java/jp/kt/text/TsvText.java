@@ -9,7 +9,7 @@ import jp.kt.tool.StringUtil;
  * <p>
  * 改行コードとタブ文字は除去されます.
  * </p>
- * 
+ *
  * @author tatsuya.kumon
  */
 public final class TsvText extends BaseText {
@@ -25,10 +25,11 @@ public final class TsvText extends BaseText {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param allText
 	 *            全文
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public TsvText(String allText) throws IOException {
 		super(allText);

@@ -11,7 +11,7 @@ import jp.kt.prop.KtProperties;
 
 /**
  * URL生成クラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public class UrlCreator extends UrlBase {
@@ -26,10 +26,11 @@ public class UrlCreator extends UrlBase {
 	 * <p>
 	 * パラメータのURLエンコードにはデフォルト文字コードを使用します.
 	 * </p>
-	 * 
+	 *
 	 * @param url
 	 *            URL
 	 * @throws URISyntaxException
+	 *             URIの書式が誤っている場合
 	 */
 	public UrlCreator(String url) throws URISyntaxException {
 		this(url, KtProperties.getInstance().getDefaultCharset());
@@ -40,12 +41,13 @@ public class UrlCreator extends UrlBase {
 	 * <p>
 	 * パラメータのURLエンコードで使用する文字コードを明示的に指定します.
 	 * </p>
-	 * 
+	 *
 	 * @param url
 	 *            URL
 	 * @param charsetName
 	 *            文字コード
 	 * @throws URISyntaxException
+	 *             URIの書式が誤っている場合
 	 */
 	public UrlCreator(String url, String charsetName) throws URISyntaxException {
 		super(url);
@@ -57,7 +59,7 @@ public class UrlCreator extends UrlBase {
 	 * <p>
 	 * 元のURLにクエリストリングが付加されている場合は、それに追加する.
 	 * </p>
-	 * 
+	 *
 	 * @param name
 	 *            パラメータ名
 	 * @param value
@@ -79,7 +81,7 @@ public class UrlCreator extends UrlBase {
 
 	/**
 	 * フラグメント（ページ内リンク）をセットする.
-	 * 
+	 *
 	 * @param fragment
 	 *            フラグメント（ページ内リンク）の名称
 	 */
@@ -89,7 +91,7 @@ public class UrlCreator extends UrlBase {
 
 	/**
 	 * サブパス（一階層下）に移動する.
-	 * 
+	 *
 	 * @param subPath
 	 *            サブパス
 	 */
@@ -127,9 +129,10 @@ public class UrlCreator extends UrlBase {
 
 	/**
 	 * URL生成.
-	 * 
+	 *
 	 * @return 生成されたURL
 	 * @throws UnsupportedEncodingException
+	 *             指定されたエンコーディングがサポートされていない場合
 	 */
 	public String create() throws UnsupportedEncodingException {
 		StringBuilder fullUrl = new StringBuilder(createWithoutParam());
@@ -172,7 +175,7 @@ public class UrlCreator extends UrlBase {
 
 	/**
 	 * パラメータやページ内リンクを除いたURLを生成する.
-	 * 
+	 *
 	 * @return 生成されたURL
 	 */
 	public String createWithoutParam() {

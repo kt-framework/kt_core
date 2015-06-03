@@ -37,6 +37,7 @@ abstract class CsvBaseText extends BaseText {
 	 * @param allText
 	 *            全文
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public CsvBaseText(String allText) throws IOException {
 		super(allText);

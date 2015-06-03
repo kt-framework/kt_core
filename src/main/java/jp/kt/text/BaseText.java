@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * テキストデータを保持するベースクラス.
- * 
+ *
  * @author tatsuya.kumon
  */
 public abstract class BaseText {
@@ -27,7 +27,7 @@ public abstract class BaseText {
 
 	/**
 	 * コンストラクタ.
-	 * 
+	 *
 	 * @param allText
 	 *            全文
 	 * @throws IOException
@@ -38,7 +38,7 @@ public abstract class BaseText {
 
 	/**
 	 * 行データを追加する.
-	 * 
+	 *
 	 * @param lineData
 	 *            セットするデータ
 	 */
@@ -58,7 +58,7 @@ public abstract class BaseText {
 	 * テキスト形式によっては、不正なテキストをこのメソッドに渡すと<br>
 	 * {@link TextFormatException} が発生する可能性があります.
 	 * </p>
-	 * 
+	 *
 	 * @param lineText
 	 *            行全体のテキスト
 	 */
@@ -66,7 +66,7 @@ public abstract class BaseText {
 
 	/**
 	 * 現在の行数を返す.
-	 * 
+	 *
 	 * @return 現在の行数
 	 */
 	public final int getLineCount() {
@@ -75,7 +75,7 @@ public abstract class BaseText {
 
 	/**
 	 * 指定行のテキストを出力.
-	 * 
+	 *
 	 * @param rowIndex
 	 *            指定行番号
 	 * @return 指定行の出力テキスト
@@ -84,7 +84,7 @@ public abstract class BaseText {
 
 	/**
 	 * 指定行のデータを返す.
-	 * 
+	 *
 	 * @param lineIndex
 	 *            指定行番号
 	 * @return 指定行のデータ
@@ -98,7 +98,7 @@ public abstract class BaseText {
 	 * <p>
 	 * 最終行には改行は付きません.
 	 * </p>
-	 * 
+	 *
 	 * @return テキスト全文
 	 */
 	public final String getAllText() {
@@ -126,10 +126,11 @@ public abstract class BaseText {
 	 * String引数付きのコンストラクタを使ってください.<br>
 	 * いずれprivateメソッドにします.
 	 * </p>
-	 * 
+	 *
 	 * @param allText
 	 *            全文
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public final void setAllText(String allText) throws IOException {
 		// ファイル内容をクリア
@@ -156,7 +157,7 @@ public abstract class BaseText {
 
 	/**
 	 * コンテンツの空判定.
-	 * 
+	 *
 	 * @return コンテンツが空ならtrue.
 	 */
 	public final boolean isEmpty() {
@@ -172,7 +173,7 @@ public abstract class BaseText {
 	 * <p>
 	 * {@link Sort}クラスのためのメソッド.
 	 * </p>
-	 * 
+	 *
 	 * @return テキスト内容
 	 */
 	final List<String[]> getContent() {

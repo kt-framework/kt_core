@@ -33,6 +33,7 @@ abstract class UrlBase {
 	 * @param url
 	 *            URL
 	 * @throws URISyntaxException
+	 *             URIの書式が誤っている場合
 	 */
 	UrlBase(String url) throws URISyntaxException {
 		// クエリ文字列がある場合は切り出してセットする

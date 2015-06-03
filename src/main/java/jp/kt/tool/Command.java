@@ -59,6 +59,7 @@ public class Command extends Thread {
 	 *
 	 * @return 出力と実行時間を示すテキスト
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	private Result execute() throws IOException {
 		/*
@@ -144,6 +145,7 @@ public class Command extends Thread {
 	 *            呼び出し元クラス
 	 * @return 実行結果
 	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
 	public static Result executeSynchronous(String command, Class<?> orgClass)
 			throws IOException {

@@ -14,6 +14,7 @@ public class UrlParser extends UrlBase {
 	 * @param url
 	 *            URL
 	 * @throws URISyntaxException
+	 *             URIの書式が誤っている場合
 	 */
 	public UrlParser(String url) throws URISyntaxException {
 		super(url);
