@@ -33,9 +33,9 @@ class GifIntHashtable extends Dictionary<Object, Object> implements Cloneable {
 	// @param loadFactor a number between 0.0 and 1.0, it defines
 	// the threshold for rehashing the hashtable into
 	// a bigger one.
-	// @exception IllegalArgumentException If the initial capacity
+	// @throws IllegalArgumentException If the initial capacity
 	// is less than or equal to zero.
-	// @exception IllegalArgumentException If the load factor is
+	// @throws IllegalArgumentException If the load factor is
 	// less than or equal to zero.
 	public GifIntHashtable(int initialCapacity, float loadFactor) {
 		if (initialCapacity <= 0 || loadFactor <= 0.0)
@@ -85,7 +85,7 @@ class GifIntHashtable extends Dictionary<Object, Object> implements Cloneable {
 	// / Returns true if the specified object is an element of the hashtable.
 	// This operation is more expensive than the containsKey() method.
 	// @param value the value that we are looking for
-	// @exception NullPointerException If the value being searched
+	// @throws NullPointerException If the value being searched
 	// for is equal to null.
 	// @see IntHashtable#containsKey
 	public synchronized boolean contains(Object value) {
@@ -172,7 +172,7 @@ class GifIntHashtable extends Dictionary<Object, Object> implements Cloneable {
 	// The key and the element cannot be null.
 	// @param key the specified key in the hashtable
 	// @param value the specified element
-	// @exception NullPointerException If the value of the element
+	// @throws NullPointerException If the value of the element
 	// is equal to null.
 	// @see IntHashtable#get
 	// @return the old value of the key, or null if it did not have one.

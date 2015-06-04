@@ -82,8 +82,8 @@ import java.util.ResourceBundle;
  * <code>{ } [ ] / \ : , = ; #</code> and if they do not look like numbers and
  * if they are not the reserved words <code>true</code>, <code>false</code>, or
  * <code>null</code>.</li>
- * <li>Keys can be followed by <code>=</code> or <code>=&gt;</code> as well as by
- * <code>:</code>.</li>
+ * <li>Keys can be followed by <code>=</code> or <code>=&gt;</code> as well as
+ * by <code>:</code>.</li>
  * <li>Values can be followed by <code>;</code> <small>(semicolon)</small> as
  * well as by <code>,</code> <small>(comma)</small>.</li>
  * <li>Numbers may have the <code>0x-</code> <small>(hex)</small> prefix.</li>
@@ -312,9 +312,9 @@ public class JSONObject {
 	 *            A string beginning with <code>{</code>&nbsp;<small>(left
 	 *            brace)</small> and ending with <code>}</code>
 	 *            &nbsp;<small>(right brace)</small>.
-	 * @exception JSONException
-	 *                If there is a syntax error in the source string or a
-	 *                duplicated key.
+	 * @throws JSONException
+	 *             If there is a syntax error in the source string or a
+	 *             duplicated key.
 	 */
 	public JSONObject(String source) throws JSONException {
 		this(new JSONTokener(source));
@@ -1186,9 +1186,10 @@ public class JSONObject {
 
 	/**
 	 * Produce a string in double quotes with backslash sequences in all the
-	 * right places. A backslash will be inserted within &lt;/, producing &lt;\/,
-	 * allowing JSON text to be delivered in HTML. In JSON text, a string cannot
-	 * contain a control character or an unescaped quote or backslash.
+	 * right places. A backslash will be inserted within &lt;/, producing
+	 * &lt;\/, allowing JSON text to be delivered in HTML. In JSON text, a
+	 * string cannot contain a control character or an unescaped quote or
+	 * backslash.
 	 *
 	 * @param string
 	 *            A String
