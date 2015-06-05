@@ -645,12 +645,10 @@ public class FileUtil {
 	 *
 	 * @param permission
 	 *            パーミッション（3ケタの半角数字で指定すること）
-	 * @throws Exception
-	 *             パラメータ不正の場合<br>
-	 *             コマンド実行時に例外発生した場合
-	 *
+	 * @throws IOException
+	 *             入出力エラーが発生した場合
 	 */
-	public void chmod(String permission) throws Exception {
+	public void chmod(String permission) throws IOException {
 		// パスの存在確認
 		if (!exists(this.path, this.isNfsMode)) {
 			throw new KtException("A013", "指定されたパスは存在しません [" + this.path + "]");
@@ -659,17 +657,17 @@ public class FileUtil {
 		if (Validator.isEmpty(permission)) {
 			// パーミッション未指定
 			throw new KtException("A037", "パーミッションが指定されていません");
-		} else if (Validator.isEmpty(permission) || permission.length() != 3
-				|| !Validator.isNumber(permission)) {
-			// 3ケタの半角数字でない
+		} else if (permission.length() != 3) {
+			// 3桁でない
 			throw new KtException("A037", "指定されたパーミッションは不正です [" + permission
 					+ "]");
 		} else {
-			// パーミッションが000～777でない
-			int p = Integer.parseInt(permission);
-			if (p < 0 || 777 < p) {
-				throw new KtException("A037", "指定されたパーミッションは不正です ["
-						+ permission + "]");
+			for (char c : permission.toCharArray()) {
+				if (c < '0' || '7' < c) {
+					// 0から7ではない文字が含まれている
+					throw new KtException("A037", "指定されたパーミッションは不正です ["
+							+ permission + "]");
+				}
 			}
 		}
 		// コマンド生成
