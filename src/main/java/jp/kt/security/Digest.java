@@ -2,9 +2,6 @@ package jp.kt.security;
 
 import java.security.MessageDigest;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
 import jp.kt.codec.Base64;
 import jp.kt.codec.Hex;
 import jp.kt.prop.KtProperties;
@@ -21,8 +18,8 @@ public class Digest {
 	/** ハッシュ化アルゴリズムSHA-1 */
 	private static final String ALGORITHM_SHA1 = "SHA-1";
 
-	/** ハッシュ化アルゴリズムHMAC-SHA1 */
-	private static final String ALGORITHM_HMAC_SHA1 = "HmacSHA1";
+	/** ハッシュ化アルゴリズムSHA-256 */
+	private static final String ALGORITHM_SHA256 = "SHA-256";
 
 	/**
 	 * インスタンス化されないための内部コンストラクタ.
@@ -107,6 +104,44 @@ public class Digest {
 	}
 
 	/**
+	 * SHA-256でのハッシュ化.
+	 * <p>
+	 * 16進文字列で返す.
+	 * </p>
+	 *
+	 * @param text
+	 *            ハッシュ化前のテキスト
+	 * @return ハッシュ化されたテキスト
+	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
+	 */
+	public static String sha256Hex(String text) throws Exception {
+		// 変換
+		byte[] digested = digest(text, ALGORITHM_SHA256);
+		// 16進文字列に変換
+		return new String(Hex.encode(digested));
+	}
+
+	/**
+	 * SHA-256でのハッシュ化.
+	 * <p>
+	 * Base64文字列で返す.
+	 * </p>
+	 *
+	 * @param text
+	 *            ハッシュ化前のテキスト
+	 * @return ハッシュ化されたテキスト
+	 * @throws Exception
+	 *             ハッシュ化処理時に例外発生した場合
+	 */
+	public static String sha256Base64(String text) throws Exception {
+		// 変換
+		byte[] digested = digest(text, ALGORITHM_SHA256);
+		// Base64文字列に変換
+		return new String(Base64.encode(digested));
+	}
+
+	/**
 	 * ハッシュ化.
 	 *
 	 * @param text
@@ -117,37 +152,12 @@ public class Digest {
 	 * @throws Exception
 	 *             ハッシュ化処理時に例外発生した場合
 	 */
-	private static byte[] digest(String text, String algorithm)
-			throws Exception {
+	private static byte[] digest(String text, String algorithm) throws Exception {
 		// デフォルト文字コードを取得
 		String charsetName = KtProperties.getInstance().getDefaultCharset();
 		// ハッシュ化
 		MessageDigest md = MessageDigest.getInstance(algorithm);
 		byte[] digested = md.digest(text.getBytes(charsetName));
 		return digested;
-	}
-
-	/**
-	 * HMAC-SHA1でのハッシュ化.
-	 * <p>
-	 * Base64文字列で返す.
-	 * </p>
-	 *
-	 * @param text
-	 *            ハッシュ化前のテキスト
-	 * @param key
-	 *            秘密鍵
-	 * @return ハッシュ化されたテキスト
-	 * @throws Exception
-	 *             ハッシュ化処理時に例外発生した場合
-	 */
-	public static String hmacSha1Base64(String text, byte[] key)
-			throws Exception {
-		SecretKeySpec sk = new SecretKeySpec(key, ALGORITHM_HMAC_SHA1);
-		Mac mac = Mac.getInstance(ALGORITHM_HMAC_SHA1);
-		mac.init(sk);
-		byte[] digested = mac.doFinal(text.getBytes());
-		// Base64文字列に変換
-		return new String(Base64.encode(digested));
 	}
 }
